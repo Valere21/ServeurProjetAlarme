@@ -209,6 +209,7 @@ DIST          = ../raspi/qt5/mkspecs/features/spec_pre.prf \
 		../raspi/qt5/mkspecs/features/qt_config.prf \
 		../raspi/qt5/mkspecs/devices/linux-rasp-pi-g++/qmake.conf \
 		../raspi/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../raspi/qt5/mkspecs/features/exclusive_builds.prf \
 		../raspi/qt5/mkspecs/features/toolchain.prf \
 		../raspi/qt5/mkspecs/features/default_pre.prf \
@@ -385,6 +386,7 @@ Makefile: serverProjetAlarme.pro ../raspi/qt5/mkspecs/devices/linux-rasp-pi-g++/
 		../raspi/qt5/mkspecs/features/qt_config.prf \
 		../raspi/qt5/mkspecs/devices/linux-rasp-pi-g++/qmake.conf \
 		../raspi/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../raspi/qt5/mkspecs/features/exclusive_builds.prf \
 		../raspi/qt5/mkspecs/features/toolchain.prf \
 		../raspi/qt5/mkspecs/features/default_pre.prf \
@@ -545,6 +547,7 @@ Makefile: serverProjetAlarme.pro ../raspi/qt5/mkspecs/devices/linux-rasp-pi-g++/
 ../raspi/qt5/mkspecs/features/qt_config.prf:
 ../raspi/qt5/mkspecs/devices/linux-rasp-pi-g++/qmake.conf:
 ../raspi/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../raspi/qt5/mkspecs/features/exclusive_builds.prf:
 ../raspi/qt5/mkspecs/features/toolchain.prf:
 ../raspi/qt5/mkspecs/features/default_pre.prf:
@@ -611,7 +614,9 @@ compiler_rcc_clean:
 qrc_qml.cpp: qml.qrc \
 		../raspi/qt5/bin/rcc \
 		PageArchive.qml \
-		main.qml
+		LuxRow.qml \
+		main.qml \
+		UltraSoundRow.qml
 	/home/crashkart/raspi/qt5/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1079,6 +1084,12 @@ moc_interface.cpp: interface.h \
 		../raspi/qt5pi/include/QtQuick/qtquickversion.h \
 		../raspi/qt5pi/include/QtNetwork/QTcpSocket \
 		../raspi/qt5pi/include/QtNetwork/QTcpServer \
+		serial.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPort \
+		../raspi/qt5pi/include/QtSerialPort/qserialport.h \
+		../raspi/qt5pi/include/QtSerialPort/qserialportglobal.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPortInfo \
+		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h \
 		moc_predefs.h \
 		../raspi/qt5/bin/moc
 	/home/crashkart/raspi/qt5/bin/moc $(DEFINES) --include /home/crashkart/ServeurProjetAlarme/moc_predefs.h -I/home/crashkart/raspi/qt5/mkspecs/devices/linux-rasp-pi-g++ -I/home/crashkart/ServeurProjetAlarme -I/home/crashkart/raspi/qt5pi/include -I/home/crashkart/raspi/qt5pi/include/QtQuick -I/home/crashkart/raspi/qt5pi/include/QtGui -I/home/crashkart/raspi/qt5pi/include/QtQml -I/home/crashkart/raspi/qt5pi/include/QtNetwork -I/home/crashkart/raspi/qt5pi/include/QtSerialPort -I/home/crashkart/raspi/qt5pi/include/QtCore -I/home/crashkart/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3 -I/home/crashkart/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/arm-linux-gnueabihf -I/home/crashkart/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/backward -I/home/crashkart/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include -I/home/crashkart/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include-fixed -I/home/crashkart/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include -I/home/crashkart/raspi/sysroot/usr/include -I/home/crashkart/raspi/sysroot/usr/include/arm-linux-gnueabihf interface.h -o moc_interface.cpp
@@ -1696,7 +1707,13 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtQuick/qsgvertexcolormaterial.h \
 		../raspi/qt5pi/include/QtQuick/qtquickversion.h \
 		../raspi/qt5pi/include/QtNetwork/QTcpSocket \
-		../raspi/qt5pi/include/QtNetwork/QTcpServer
+		../raspi/qt5pi/include/QtNetwork/QTcpServer \
+		serial.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPort \
+		../raspi/qt5pi/include/QtSerialPort/qserialport.h \
+		../raspi/qt5pi/include/QtSerialPort/qserialportglobal.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPortInfo \
+		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interface.o interface.cpp
 
 interfacefunc.o: interfacefunc.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
@@ -2157,7 +2174,13 @@ interfacefunc.o: interfacefunc.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication 
 		../raspi/qt5pi/include/QtQuick/qsgtextureprovider.h \
 		../raspi/qt5pi/include/QtQuick/qsgvertexcolormaterial.h \
 		../raspi/qt5pi/include/QtQuick/qtquickversion.h \
-		../raspi/qt5pi/include/QtNetwork/QTcpServer
+		../raspi/qt5pi/include/QtNetwork/QTcpServer \
+		serial.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPort \
+		../raspi/qt5pi/include/QtSerialPort/qserialport.h \
+		../raspi/qt5pi/include/QtSerialPort/qserialportglobal.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPortInfo \
+		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interfacefunc.o interfacefunc.cpp
 
 interfaceview.o: interfaceview.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
@@ -2618,7 +2641,13 @@ interfaceview.o: interfaceview.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication 
 		../raspi/qt5pi/include/QtQuick/qsgvertexcolormaterial.h \
 		../raspi/qt5pi/include/QtQuick/qtquickversion.h \
 		../raspi/qt5pi/include/QtNetwork/QTcpSocket \
-		../raspi/qt5pi/include/QtNetwork/QTcpServer
+		../raspi/qt5pi/include/QtNetwork/QTcpServer \
+		serial.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPort \
+		../raspi/qt5pi/include/QtSerialPort/qserialport.h \
+		../raspi/qt5pi/include/QtSerialPort/qserialportglobal.h \
+		../raspi/qt5pi/include/QtSerialPort/QSerialPortInfo \
+		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interfaceview.o interfaceview.cpp
 
 main.o: main.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
@@ -3146,20 +3175,412 @@ serial.o: serial.cpp serial.h \
 		../raspi/qt5pi/include/QtSerialPort/qserialportglobal.h \
 		../raspi/qt5pi/include/QtSerialPort/QSerialPortInfo \
 		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h \
-		../raspi/qt5pi/include/QtCore/QtDebug \
+		interface.h \
+		../raspi/qt5pi/include/QtQuick/QtQuick \
+		../raspi/qt5pi/include/QtQuick/QtQuickDepends \
+		../raspi/qt5pi/include/QtCore/QtCore \
+		../raspi/qt5pi/include/QtCore/QtCoreDepends \
+		../raspi/qt5pi/include/QtCore/qabstractanimation.h \
+		../raspi/qt5pi/include/QtCore/qabstracteventdispatcher.h \
+		../raspi/qt5pi/include/QtCore/qeventloop.h \
+		../raspi/qt5pi/include/QtCore/qabstractitemmodel.h \
+		../raspi/qt5pi/include/QtCore/qvariant.h \
+		../raspi/qt5pi/include/QtCore/qmap.h \
 		../raspi/qt5pi/include/QtCore/qdebug.h \
 		../raspi/qt5pi/include/QtCore/qhash.h \
-		../raspi/qt5pi/include/QtCore/qmap.h \
 		../raspi/qt5pi/include/QtCore/qtextstream.h \
 		../raspi/qt5pi/include/QtCore/qlocale.h \
-		../raspi/qt5pi/include/QtCore/qvariant.h \
 		../raspi/qt5pi/include/QtCore/qshareddata.h \
 		../raspi/qt5pi/include/QtCore/qvector.h \
 		../raspi/qt5pi/include/QtCore/qpoint.h \
 		../raspi/qt5pi/include/QtCore/qset.h \
 		../raspi/qt5pi/include/QtCore/qcontiguouscache.h \
 		../raspi/qt5pi/include/QtCore/qsharedpointer.h \
-		../raspi/qt5pi/include/QtCore/qsharedpointer_impl.h
+		../raspi/qt5pi/include/QtCore/qsharedpointer_impl.h \
+		../raspi/qt5pi/include/QtCore/qabstractnativeeventfilter.h \
+		../raspi/qt5pi/include/QtCore/qabstractproxymodel.h \
+		../raspi/qt5pi/include/QtCore/qabstractstate.h \
+		../raspi/qt5pi/include/QtCore/qabstracttransition.h \
+		../raspi/qt5pi/include/QtCore/qanimationgroup.h \
+		../raspi/qt5pi/include/QtCore/qarraydataops.h \
+		../raspi/qt5pi/include/QtCore/qarraydatapointer.h \
+		../raspi/qt5pi/include/QtCore/qbasictimer.h \
+		../raspi/qt5pi/include/QtCore/qbitarray.h \
+		../raspi/qt5pi/include/QtCore/qbuffer.h \
+		../raspi/qt5pi/include/QtCore/qbytearraymatcher.h \
+		../raspi/qt5pi/include/QtCore/qcache.h \
+		../raspi/qt5pi/include/QtCore/qcborarray.h \
+		../raspi/qt5pi/include/QtCore/qcborvalue.h \
+		../raspi/qt5pi/include/QtCore/qdatetime.h \
+		../raspi/qt5pi/include/QtCore/qcborcommon.h \
+		../raspi/qt5pi/include/QtCore/qregularexpression.h \
+		../raspi/qt5pi/include/QtCore/qurl.h \
+		../raspi/qt5pi/include/QtCore/qurlquery.h \
+		../raspi/qt5pi/include/QtCore/quuid.h \
+		../raspi/qt5pi/include/QtCore/qcbormap.h \
+		../raspi/qt5pi/include/QtCore/qcborstream.h \
+		../raspi/qt5pi/include/QtCore/qfloat16.h \
+		../raspi/qt5pi/include/QtCore/qcollator.h \
+		../raspi/qt5pi/include/QtCore/qcommandlineoption.h \
+		../raspi/qt5pi/include/QtCore/qcommandlineparser.h \
+		../raspi/qt5pi/include/QtCore/qcoreapplication.h \
+		../raspi/qt5pi/include/QtCore/qcryptographichash.h \
+		../raspi/qt5pi/include/QtCore/qdatastream.h \
+		../raspi/qt5pi/include/QtCore/qdeadlinetimer.h \
+		../raspi/qt5pi/include/QtCore/qelapsedtimer.h \
+		../raspi/qt5pi/include/QtCore/qdir.h \
+		../raspi/qt5pi/include/QtCore/qfileinfo.h \
+		../raspi/qt5pi/include/QtCore/qfile.h \
+		../raspi/qt5pi/include/QtCore/qfiledevice.h \
+		../raspi/qt5pi/include/QtCore/qdiriterator.h \
+		../raspi/qt5pi/include/QtCore/qeasingcurve.h \
+		../raspi/qt5pi/include/QtCore/qendian.h \
+		../raspi/qt5pi/include/QtCore/qeventtransition.h \
+		../raspi/qt5pi/include/QtCore/qexception.h \
+		../raspi/qt5pi/include/QtCore/qfactoryinterface.h \
+		../raspi/qt5pi/include/QtCore/qfileselector.h \
+		../raspi/qt5pi/include/QtCore/QStringList \
+		../raspi/qt5pi/include/QtCore/qfilesystemwatcher.h \
+		../raspi/qt5pi/include/QtCore/qfinalstate.h \
+		../raspi/qt5pi/include/QtCore/qfuture.h \
+		../raspi/qt5pi/include/QtCore/qfutureinterface.h \
+		../raspi/qt5pi/include/QtCore/qrunnable.h \
+		../raspi/qt5pi/include/QtCore/qresultstore.h \
+		../raspi/qt5pi/include/QtCore/qfuturesynchronizer.h \
+		../raspi/qt5pi/include/QtCore/qfuturewatcher.h \
+		../raspi/qt5pi/include/QtCore/qhistorystate.h \
+		../raspi/qt5pi/include/QtCore/qidentityproxymodel.h \
+		../raspi/qt5pi/include/QtCore/qisenum.h \
+		../raspi/qt5pi/include/QtCore/qitemselectionmodel.h \
+		../raspi/qt5pi/include/QtCore/qjsonarray.h \
+		../raspi/qt5pi/include/QtCore/qjsonvalue.h \
+		../raspi/qt5pi/include/QtCore/qjsondocument.h \
+		../raspi/qt5pi/include/QtCore/qjsonobject.h \
+		../raspi/qt5pi/include/QtCore/qlibrary.h \
+		../raspi/qt5pi/include/QtCore/qlibraryinfo.h \
+		../raspi/qt5pi/include/QtCore/qversionnumber.h \
+		../raspi/qt5pi/include/QtCore/qline.h \
+		../raspi/qt5pi/include/QtCore/qlinkedlist.h \
+		../raspi/qt5pi/include/QtCore/qlockfile.h \
+		../raspi/qt5pi/include/QtCore/qloggingcategory.h \
+		../raspi/qt5pi/include/QtCore/qmargins.h \
+		../raspi/qt5pi/include/QtCore/qmath.h \
+		../raspi/qt5pi/include/QtCore/qmessageauthenticationcode.h \
+		../raspi/qt5pi/include/QtCore/qmetaobject.h \
+		../raspi/qt5pi/include/QtCore/qmimedata.h \
+		../raspi/qt5pi/include/QtCore/qmimedatabase.h \
+		../raspi/qt5pi/include/QtCore/qmimetype.h \
+		../raspi/qt5pi/include/QtCore/qobjectcleanuphandler.h \
+		../raspi/qt5pi/include/QtCore/qoperatingsystemversion.h \
+		../raspi/qt5pi/include/QtCore/qparallelanimationgroup.h \
+		../raspi/qt5pi/include/QtCore/qpauseanimation.h \
+		../raspi/qt5pi/include/QtCore/qplugin.h \
+		../raspi/qt5pi/include/QtCore/qpointer.h \
+		../raspi/qt5pi/include/QtCore/qpluginloader.h \
+		../raspi/qt5pi/include/QtCore/qprocess.h \
+		../raspi/qt5pi/include/QtCore/qpropertyanimation.h \
+		../raspi/qt5pi/include/QtCore/qvariantanimation.h \
+		../raspi/qt5pi/include/QtCore/qqueue.h \
+		../raspi/qt5pi/include/QtCore/qrandom.h \
+		../raspi/qt5pi/include/QtCore/qreadwritelock.h \
+		../raspi/qt5pi/include/QtCore/qrect.h \
+		../raspi/qt5pi/include/QtCore/qsize.h \
+		../raspi/qt5pi/include/QtCore/qresource.h \
+		../raspi/qt5pi/include/QtCore/qsavefile.h \
+		../raspi/qt5pi/include/QtCore/qscopedvaluerollback.h \
+		../raspi/qt5pi/include/QtCore/qscopeguard.h \
+		../raspi/qt5pi/include/QtCore/qsemaphore.h \
+		../raspi/qt5pi/include/QtCore/qsequentialanimationgroup.h \
+		../raspi/qt5pi/include/QtCore/qsettings.h \
+		../raspi/qt5pi/include/QtCore/qsharedmemory.h \
+		../raspi/qt5pi/include/QtCore/qsignalmapper.h \
+		../raspi/qt5pi/include/QtCore/qsignaltransition.h \
+		../raspi/qt5pi/include/QtCore/qsocketnotifier.h \
+		../raspi/qt5pi/include/QtCore/qsortfilterproxymodel.h \
+		../raspi/qt5pi/include/QtCore/qstack.h \
+		../raspi/qt5pi/include/QtCore/qstandardpaths.h \
+		../raspi/qt5pi/include/QtCore/qstate.h \
+		../raspi/qt5pi/include/QtCore/qstatemachine.h \
+		../raspi/qt5pi/include/QtCore/qstorageinfo.h \
+		../raspi/qt5pi/include/QtCore/qstringlistmodel.h \
+		../raspi/qt5pi/include/QtCore/qsystemsemaphore.h \
+		../raspi/qt5pi/include/QtCore/qtemporarydir.h \
+		../raspi/qt5pi/include/QtCore/qtemporaryfile.h \
+		../raspi/qt5pi/include/QtCore/qtextboundaryfinder.h \
+		../raspi/qt5pi/include/QtCore/qtextcodec.h \
+		../raspi/qt5pi/include/QtCore/qthread.h \
+		../raspi/qt5pi/include/QtCore/qthreadpool.h \
+		../raspi/qt5pi/include/QtCore/qthreadstorage.h \
+		../raspi/qt5pi/include/QtCore/qtimeline.h \
+		../raspi/qt5pi/include/QtCore/qtimer.h \
+		../raspi/qt5pi/include/QtCore/qtimezone.h \
+		../raspi/qt5pi/include/QtCore/qtranslator.h \
+		../raspi/qt5pi/include/QtCore/qtypetraits.h \
+		../raspi/qt5pi/include/QtCore/qwaitcondition.h \
+		../raspi/qt5pi/include/QtCore/qwineventnotifier.h \
+		../raspi/qt5pi/include/QtCore/qxmlstream.h \
+		../raspi/qt5pi/include/QtCore/qtcoreversion.h \
+		../raspi/qt5pi/include/QtGui/QtGui \
+		../raspi/qt5pi/include/QtGui/QtGuiDepends \
+		../raspi/qt5pi/include/QtGui/qtguiglobal.h \
+		../raspi/qt5pi/include/QtGui/qtgui-config.h \
+		../raspi/qt5pi/include/QtGui/qabstracttextdocumentlayout.h \
+		../raspi/qt5pi/include/QtGui/qtextlayout.h \
+		../raspi/qt5pi/include/QtGui/qcolor.h \
+		../raspi/qt5pi/include/QtGui/qrgb.h \
+		../raspi/qt5pi/include/QtGui/qrgba64.h \
+		../raspi/qt5pi/include/QtGui/qevent.h \
+		../raspi/qt5pi/include/QtGui/qwindowdefs.h \
+		../raspi/qt5pi/include/QtGui/qwindowdefs_win.h \
+		../raspi/qt5pi/include/QtGui/qregion.h \
+		../raspi/qt5pi/include/QtGui/qkeysequence.h \
+		../raspi/qt5pi/include/QtGui/qvector2d.h \
+		../raspi/qt5pi/include/QtGui/qtouchdevice.h \
+		../raspi/qt5pi/include/QtGui/qtextformat.h \
+		../raspi/qt5pi/include/QtGui/qfont.h \
+		../raspi/qt5pi/include/QtGui/qpen.h \
+		../raspi/qt5pi/include/QtGui/qbrush.h \
+		../raspi/qt5pi/include/QtGui/qmatrix.h \
+		../raspi/qt5pi/include/QtGui/qpolygon.h \
+		../raspi/qt5pi/include/QtGui/qtransform.h \
+		../raspi/qt5pi/include/QtGui/qpainterpath.h \
+		../raspi/qt5pi/include/QtGui/qimage.h \
+		../raspi/qt5pi/include/QtGui/qpaintdevice.h \
+		../raspi/qt5pi/include/QtGui/qpixelformat.h \
+		../raspi/qt5pi/include/QtGui/qpixmap.h \
+		../raspi/qt5pi/include/QtGui/qtextoption.h \
+		../raspi/qt5pi/include/QtGui/qglyphrun.h \
+		../raspi/qt5pi/include/QtGui/qrawfont.h \
+		../raspi/qt5pi/include/QtGui/qfontdatabase.h \
+		../raspi/qt5pi/include/QtGui/qtextcursor.h \
+		../raspi/qt5pi/include/QtGui/qtextdocument.h \
+		../raspi/qt5pi/include/QtGui/qpalette.h \
+		../raspi/qt5pi/include/QtGui/qaccessible.h \
+		../raspi/qt5pi/include/QtGui/qaccessiblebridge.h \
+		../raspi/qt5pi/include/QtGui/qaccessibleobject.h \
+		../raspi/qt5pi/include/QtGui/qaccessibleplugin.h \
+		../raspi/qt5pi/include/QtGui/qbackingstore.h \
+		../raspi/qt5pi/include/QtGui/qwindow.h \
+		../raspi/qt5pi/include/QtCore/QEvent \
+		../raspi/qt5pi/include/QtCore/QMargins \
+		../raspi/qt5pi/include/QtCore/QRect \
+		../raspi/qt5pi/include/QtGui/qsurface.h \
+		../raspi/qt5pi/include/QtGui/qsurfaceformat.h \
+		../raspi/qt5pi/include/QtGui/qicon.h \
+		../raspi/qt5pi/include/QtGui/qcursor.h \
+		../raspi/qt5pi/include/QtGui/qbitmap.h \
+		../raspi/qt5pi/include/QtGui/qclipboard.h \
+		../raspi/qt5pi/include/QtGui/qdesktopservices.h \
+		../raspi/qt5pi/include/QtGui/qdrag.h \
+		../raspi/qt5pi/include/QtGui/qfontinfo.h \
+		../raspi/qt5pi/include/QtGui/qfontmetrics.h \
+		../raspi/qt5pi/include/QtGui/qgenericmatrix.h \
+		../raspi/qt5pi/include/QtGui/qgenericplugin.h \
+		../raspi/qt5pi/include/QtGui/qgenericpluginfactory.h \
+		../raspi/qt5pi/include/QtGui/qguiapplication.h \
+		../raspi/qt5pi/include/QtGui/qinputmethod.h \
+		../raspi/qt5pi/include/QtGui/qiconengine.h \
+		../raspi/qt5pi/include/QtGui/qiconengineplugin.h \
+		../raspi/qt5pi/include/QtGui/qimageiohandler.h \
+		../raspi/qt5pi/include/QtGui/qimagereader.h \
+		../raspi/qt5pi/include/QtGui/qimagewriter.h \
+		../raspi/qt5pi/include/QtGui/qmatrix4x4.h \
+		../raspi/qt5pi/include/QtGui/qvector3d.h \
+		../raspi/qt5pi/include/QtGui/qvector4d.h \
+		../raspi/qt5pi/include/QtGui/qquaternion.h \
+		../raspi/qt5pi/include/QtGui/qmovie.h \
+		../raspi/qt5pi/include/QtGui/qoffscreensurface.h \
+		../raspi/qt5pi/include/QtGui/qopengl.h \
+		../raspi/qt5pi/include/QtCore/qt_windows.h \
+		../raspi/sysroot/opt/vc/include/GLES2/gl2.h \
+		../raspi/sysroot/opt/vc/include/GLES2/gl2platform.h \
+		../raspi/sysroot/opt/vc/include/KHR/khrplatform.h \
+		../raspi/sysroot/opt/vc/include/vcinclude/common.h \
+		../raspi/sysroot/opt/vc/include/interface/vcos/vcos_stdint.h \
+		../raspi/sysroot/opt/vc/include/interface/vctypes/vc_image_types.h \
+		../raspi/qt5pi/include/QtGui/qopengles2ext.h \
+		../raspi/qt5pi/include/QtGui/qopenglext.h \
+		../raspi/qt5pi/include/QtGui/qopenglbuffer.h \
+		../raspi/qt5pi/include/QtGui/qopenglcontext.h \
+		../raspi/qt5pi/include/QtCore/QScopedPointer \
+		../raspi/qt5pi/include/QtGui/QSurfaceFormat \
+		../raspi/qt5pi/include/QtGui/qopenglversionfunctions.h \
+		../raspi/qt5pi/include/QtGui/qopengldebug.h \
+		../raspi/qt5pi/include/QtGui/qopenglextrafunctions.h \
+		../raspi/qt5pi/include/QtGui/qopenglfunctions.h \
+		../raspi/qt5pi/include/QtGui/qopenglframebufferobject.h \
+		../raspi/qt5pi/include/QtGui/qopenglpaintdevice.h \
+		../raspi/qt5pi/include/QtGui/qopenglpixeltransferoptions.h \
+		../raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		../raspi/qt5pi/include/QtGui/qopenglshaderprogram.h \
+		../raspi/qt5pi/include/QtGui/qopengltexture.h \
+		../raspi/qt5pi/include/QtGui/qopengltextureblitter.h \
+		../raspi/qt5pi/include/QtGui/QMatrix3x3 \
+		../raspi/qt5pi/include/QtGui/QMatrix4x4 \
+		../raspi/qt5pi/include/QtGui/qopengltimerquery.h \
+		../raspi/qt5pi/include/QtGui/qopenglvertexarrayobject.h \
+		../raspi/qt5pi/include/QtGui/qopenglwindow.h \
+		../raspi/qt5pi/include/QtGui/QPaintDeviceWindow \
+		../raspi/qt5pi/include/QtGui/qpaintdevicewindow.h \
+		../raspi/qt5pi/include/QtGui/QWindow \
+		../raspi/qt5pi/include/QtGui/QPaintDevice \
+		../raspi/qt5pi/include/QtGui/QOpenGLContext \
+		../raspi/qt5pi/include/QtGui/QImage \
+		../raspi/qt5pi/include/QtGui/qpagedpaintdevice.h \
+		../raspi/qt5pi/include/QtGui/qpagelayout.h \
+		../raspi/qt5pi/include/QtGui/qpagesize.h \
+		../raspi/qt5pi/include/QtGui/qpaintengine.h \
+		../raspi/qt5pi/include/QtGui/qpainter.h \
+		../raspi/qt5pi/include/QtGui/qpdfwriter.h \
+		../raspi/qt5pi/include/QtGui/qpicture.h \
+		../raspi/qt5pi/include/QtGui/qpictureformatplugin.h \
+		../raspi/qt5pi/include/QtGui/qpixmapcache.h \
+		../raspi/qt5pi/include/QtGui/qrasterwindow.h \
+		../raspi/qt5pi/include/QtGui/qscreen.h \
+		../raspi/qt5pi/include/QtCore/QList \
+		../raspi/qt5pi/include/QtCore/QSize \
+		../raspi/qt5pi/include/QtCore/QSizeF \
+		../raspi/qt5pi/include/QtGui/QTransform \
+		../raspi/qt5pi/include/QtGui/qsessionmanager.h \
+		../raspi/qt5pi/include/QtGui/qstandarditemmodel.h \
+		../raspi/qt5pi/include/QtGui/qstatictext.h \
+		../raspi/qt5pi/include/QtGui/qstylehints.h \
+		../raspi/qt5pi/include/QtGui/qsyntaxhighlighter.h \
+		../raspi/qt5pi/include/QtGui/qtextobject.h \
+		../raspi/qt5pi/include/QtGui/qtextdocumentfragment.h \
+		../raspi/qt5pi/include/QtGui/qtextdocumentwriter.h \
+		../raspi/qt5pi/include/QtGui/qtextlist.h \
+		../raspi/qt5pi/include/QtGui/qtexttable.h \
+		../raspi/qt5pi/include/QtGui/qvalidator.h \
+		../raspi/qt5pi/include/QtGui/qtguiversion.h \
+		../raspi/qt5pi/include/QtQml/QtQml \
+		../raspi/qt5pi/include/QtQml/QtQmlDepends \
+		../raspi/qt5pi/include/QtNetwork/QtNetwork \
+		../raspi/qt5pi/include/QtNetwork/QtNetworkDepends \
+		../raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		../raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		../raspi/qt5pi/include/QtNetwork/qabstractnetworkcache.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		../raspi/qt5pi/include/QtCore/QString \
+		../raspi/qt5pi/include/QtCore/QUrl \
+		../raspi/qt5pi/include/QtCore/QVariant \
+		../raspi/qt5pi/include/QtNetwork/qabstractsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qauthenticator.h \
+		../raspi/qt5pi/include/QtNetwork/qdnslookup.h \
+		../raspi/qt5pi/include/QtNetwork/qdtls.h \
+		../raspi/qt5pi/include/QtNetwork/qsslsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qtcpsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qsslerror.h \
+		../raspi/qt5pi/include/QtNetwork/qsslcertificate.h \
+		../raspi/qt5pi/include/QtNetwork/qssl.h \
+		../raspi/qt5pi/include/QtCore/QFlags \
+		../raspi/qt5pi/include/QtNetwork/qhostaddress.h \
+		../raspi/qt5pi/include/QtNetwork/qhostinfo.h \
+		../raspi/qt5pi/include/QtNetwork/qhstspolicy.h \
+		../raspi/qt5pi/include/QtNetwork/qhttpmultipart.h \
+		../raspi/qt5pi/include/QtCore/QByteArray \
+		../raspi/qt5pi/include/QtCore/QIODevice \
+		../raspi/qt5pi/include/QtNetwork/QNetworkRequest \
+		../raspi/qt5pi/include/QtNetwork/qlocalserver.h \
+		../raspi/qt5pi/include/QtNetwork/qlocalsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkaccessmanager.h \
+		../raspi/qt5pi/include/QtCore/QVector \
+		../raspi/qt5pi/include/QtNetwork/QSslConfiguration \
+		../raspi/qt5pi/include/QtNetwork/qsslconfiguration.h \
+		../raspi/qt5pi/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		../raspi/qt5pi/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		../raspi/qt5pi/include/QtCore/QMetaType \
+		../raspi/qt5pi/include/QtNetwork/qnetworkconfigmanager.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkcookie.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkcookiejar.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkdatagram.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkdiskcache.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkinterface.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkproxy.h \
+		../raspi/qt5pi/include/QtNetwork/qnetworkreply.h \
+		../raspi/qt5pi/include/QtNetwork/QNetworkAccessManager \
+		../raspi/qt5pi/include/QtNetwork/qnetworksession.h \
+		../raspi/qt5pi/include/QtNetwork/qpassworddigestor.h \
+		../raspi/qt5pi/include/QtCore/QCryptographicHash \
+		../raspi/qt5pi/include/QtNetwork/qsctpserver.h \
+		../raspi/qt5pi/include/QtNetwork/qtcpserver.h \
+		../raspi/qt5pi/include/QtNetwork/qsctpsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qsslcertificateextension.h \
+		../raspi/qt5pi/include/QtNetwork/qsslcipher.h \
+		../raspi/qt5pi/include/QtNetwork/qssldiffiehellmanparameters.h \
+		../raspi/qt5pi/include/QtNetwork/qsslellipticcurve.h \
+		../raspi/qt5pi/include/QtCore/QHash \
+		../raspi/qt5pi/include/QtNetwork/qsslkey.h \
+		../raspi/qt5pi/include/QtNetwork/qudpsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qtnetworkversion.h \
+		../raspi/qt5pi/include/QtQml/qtqmlglobal.h \
+		../raspi/qt5pi/include/QtQml/qtqml-config.h \
+		../raspi/qt5pi/include/QtQml/qjsengine.h \
+		../raspi/qt5pi/include/QtQml/qjsvalue.h \
+		../raspi/qt5pi/include/QtQml/qqmldebug.h \
+		../raspi/qt5pi/include/QtQml/qjsvalueiterator.h \
+		../raspi/qt5pi/include/QtQml/qqml.h \
+		../raspi/qt5pi/include/QtQml/qqmlprivate.h \
+		../raspi/qt5pi/include/QtQml/qqmlparserstatus.h \
+		../raspi/qt5pi/include/QtQml/qqmlpropertyvaluesource.h \
+		../raspi/qt5pi/include/QtQml/qqmllist.h \
+		../raspi/qt5pi/include/QtQml/qqmlabstracturlinterceptor.h \
+		../raspi/qt5pi/include/QtQml/qqmlapplicationengine.h \
+		../raspi/qt5pi/include/QtQml/qqmlengine.h \
+		../raspi/qt5pi/include/QtQml/qqmlerror.h \
+		../raspi/qt5pi/include/QtQml/qqmlcomponent.h \
+		../raspi/qt5pi/include/QtQml/qqmlcontext.h \
+		../raspi/qt5pi/include/QtQml/qqmlexpression.h \
+		../raspi/qt5pi/include/QtQml/qqmlscriptstring.h \
+		../raspi/qt5pi/include/QtQml/qqmlextensioninterface.h \
+		../raspi/qt5pi/include/QtQml/qqmlextensionplugin.h \
+		../raspi/qt5pi/include/QtQml/qqmlfile.h \
+		../raspi/qt5pi/include/QtQml/qqmlfileselector.h \
+		../raspi/qt5pi/include/QtQml/QQmlEngine \
+		../raspi/qt5pi/include/QtQml/qqmlincubator.h \
+		../raspi/qt5pi/include/QtQml/qqmlinfo.h \
+		../raspi/qt5pi/include/QtQml/qqmlnetworkaccessmanagerfactory.h \
+		../raspi/qt5pi/include/QtQml/qqmlproperty.h \
+		../raspi/qt5pi/include/QtQml/qqmlpropertymap.h \
+		../raspi/qt5pi/include/QtQml/qtqmlversion.h \
+		../raspi/qt5pi/include/QtQuick/qtquickglobal.h \
+		../raspi/qt5pi/include/QtQuick/qtquick-config.h \
+		../raspi/qt5pi/include/QtQuick/qquickframebufferobject.h \
+		../raspi/qt5pi/include/QtQuick/QQuickItem \
+		../raspi/qt5pi/include/QtQuick/qquickitem.h \
+		../raspi/qt5pi/include/QtQuick/qquickimageprovider.h \
+		../raspi/qt5pi/include/QtQuick/qquickitemgrabresult.h \
+		../raspi/qt5pi/include/QtQml/QJSValue \
+		../raspi/qt5pi/include/QtQuick/qquickpainteditem.h \
+		../raspi/qt5pi/include/QtQuick/qquickrendercontrol.h \
+		../raspi/qt5pi/include/QtQuick/qquicktextdocument.h \
+		../raspi/qt5pi/include/QtGui/QTextDocument \
+		../raspi/qt5pi/include/QtQuick/qquickview.h \
+		../raspi/qt5pi/include/QtQuick/qquickwindow.h \
+		../raspi/qt5pi/include/QtQuick/qsgrendererinterface.h \
+		../raspi/qt5pi/include/QtQuick/qsgnode.h \
+		../raspi/qt5pi/include/QtQuick/qsggeometry.h \
+		../raspi/qt5pi/include/QtCore/QRectF \
+		../raspi/qt5pi/include/QtQuick/qsgabstractrenderer.h \
+		../raspi/qt5pi/include/QtQuick/qsgengine.h \
+		../raspi/qt5pi/include/QtQuick/qsgflatcolormaterial.h \
+		../raspi/qt5pi/include/QtQuick/qsgmaterial.h \
+		../raspi/qt5pi/include/QtQuick/qsgimagenode.h \
+		../raspi/qt5pi/include/QtQuick/qsgtexture.h \
+		../raspi/qt5pi/include/QtQuick/qsgninepatchnode.h \
+		../raspi/qt5pi/include/QtQuick/qsgrectanglenode.h \
+		../raspi/qt5pi/include/QtQuick/qsgrendernode.h \
+		../raspi/qt5pi/include/QtQuick/qsgsimplematerial.h \
+		../raspi/qt5pi/include/QtQuick/qsgsimplerectnode.h \
+		../raspi/qt5pi/include/QtQuick/qsgsimpletexturenode.h \
+		../raspi/qt5pi/include/QtQuick/qsgtexturematerial.h \
+		../raspi/qt5pi/include/QtQuick/qsgtextureprovider.h \
+		../raspi/qt5pi/include/QtQuick/qsgvertexcolormaterial.h \
+		../raspi/qt5pi/include/QtQuick/qtquickversion.h \
+		../raspi/qt5pi/include/QtNetwork/QTcpSocket \
+		../raspi/qt5pi/include/QtNetwork/QTcpServer \
+		../raspi/qt5pi/include/QtCore/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o serial.o serial.cpp
 
 qrc_qml.o: qrc_qml.cpp 
