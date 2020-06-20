@@ -110,16 +110,9 @@ void Interface::onReadyRead(){
         }*/
         socket->write("Le message reçu est :" + message);
     }
-
-    //    message = "Test message";
-    //    writeSensorLux(message);
-
-
 }
 
 void Interface::writeSensorLux(QByteArray message){
-
-    //**** PLACER ICI LES VALEURS DES CAPTEURS (OU SIMPLEMENT LEURS DETECTION)****//
 
     socket->write(message);
 }
@@ -130,21 +123,34 @@ void Interface::getSensorState(QByteArray msg)
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
 
+    if (msg == "0"){
 
-    if (msg == "1" || "3"){
+        lightLux->setProperty ("active", "false");
+        lightSound->setProperty ("active", "false");
+    }
+
+    if (msg == "1" ){                     //test capteur lumière
 
         qDebug() << "test activation de couleur capteur Lumiere";
 
         lightLux->setProperty("color", "c01414");
-        lightLux->setProperty ("active", "true");
+        lightLux->setProperty ("active", "true");        
+        lightSound->setProperty ("active", "false");
     }
-    if (msg == "2" || "3"){
+    if (msg == "2"){
 
         qDebug() << "test activation de couleur capteur Ultrason";
 
         lightSound->setProperty("color", "c01414");
+        lightSound->setProperty ("active", "true");        
+        lightLux->setProperty ("active", "false");
+    }
+    if (msg == "3"){
+
+        lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
     }
+
 }
 
 void Interface::socketError(QAbstractSocket::SocketError socketError){

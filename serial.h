@@ -27,8 +27,6 @@ public slots:
 
     void onReadyRead();
 
-
-
 private:
 
     QSerialPort *m_pinRX = nullptr;

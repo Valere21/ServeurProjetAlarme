@@ -27,23 +27,11 @@ public:
     bool event(QEvent *event) override;
     ~Interface() override;
 
-
     void init();
-
 
     void writeSensorLux(QByteArray message);
     void writeSensorSound(QByteArray message);
 
-
-
-
-    QTcpServer *server =  nullptr;
-    QTcpSocket *socket = nullptr;
-    QList <QTcpSocket*> listSocket;
-
-
-
-signals:
 
 public slots:
     // void    handleChecker(int val);
@@ -68,14 +56,6 @@ public slots:
 
 
 
-
-
-
-
-
-
-
-
 private slots:
     void    viewChanger(int id);
     void    loadMain();
@@ -83,6 +63,11 @@ private slots:
 
 
 private:
+
+    QTcpServer *server =  nullptr;
+    QTcpSocket *socket = nullptr;
+    QList <QTcpSocket*> listSocket;
+
     Serial lecture;
     int m_pageId;
 };
