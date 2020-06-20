@@ -124,6 +124,23 @@ void Interface::writeSensorLux(QByteArray message){
     socket->write(message);
 }
 
+void Interface::getSensorState(QByteArray msg)
+{
+    QObject* rootItem = (QObject*)rootObject();
+    QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
+    QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
+
+
+    if (msg == "1"){
+    lightLux->setProperty("color", "c01414");
+    lightLux->setProperty ("active", "true");
+    }
+    if (msg == "2"){
+    lightSound->setProperty("color", "c01414");
+    lightSound->setProperty ("active", "true");
+    }
+}
+
 void Interface::socketError(QAbstractSocket::SocketError socketError){
 
     qDebug() << "Erreur du socket, numéro d'erreur :" << socketError;

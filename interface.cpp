@@ -10,6 +10,7 @@ Interface::Interface(QWindow *parent) : QQuickView(parent)
 {
     Archive ObjArchive;
 
+    connect (&lecture,SIGNAL (sendSensorState(QByteArray)),this, SLOT (getSensorState(QByteArray)));
 
     setResizeMode(QQuickView::SizeRootObjectToView);
 
@@ -22,6 +23,7 @@ Interface::Interface(QWindow *parent) : QQuickView(parent)
     show();
 
 }
+
 
 
 /*

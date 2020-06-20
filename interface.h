@@ -12,7 +12,7 @@
 #include <QtQuick>
 #include <QTcpSocket>
 #include <QTcpServer>
-
+#include "serial.h"
 
 #define V_MAIN      1 //  id des views
 
@@ -50,6 +50,7 @@ public slots:
     //void onGetValue(){}
 
     //void msgDetect(QByteArray msg);
+    void getSensorState(QByteArray msg);
 
     void luxDetect();
     void soundDetect();
@@ -82,6 +83,7 @@ private slots:
 
 
 private:
+    Serial lecture;
     int m_pageId;
 };
 

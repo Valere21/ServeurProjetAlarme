@@ -17,6 +17,12 @@ public:
     void init();
     void checkMsg();
 
+
+signals :
+
+    void sendSensorState(QByteArray);
+
+
 public slots:
 
     void onReadyRead();

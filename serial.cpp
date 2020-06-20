@@ -1,4 +1,5 @@
 #include "serial.h"
+#include "interface.h"
 #include "QtDebug"
 Serial::Serial()
 {
@@ -47,6 +48,9 @@ void Serial::onReadyRead(){
 
 
     qDebug() << m_msgAll << "message nucleo";
+
+    emit sendSensorState(m_msgAll);
+
 }
 
 void Serial::checkMsg(){
