@@ -33,7 +33,7 @@ Page {
             Layout.row: 0
             Layout.column: 1
             //anchors.top: parent.top
-            text:"Capteur de lumière : (valeur) \n horodatage :" + cpp.getDate(soundLabel)
+            text:"Capteur de lumière : (valeur) \n horodatage :" + cpp.getDate(luxLabel)
             wrapMode: Text.WordWrap
 
         }
