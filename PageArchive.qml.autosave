@@ -37,7 +37,7 @@ Page {
             Layout.row: 1
             Layout.column: 1
             text:"Capteur de lumière : (valeur) \n heure : "
-
+            
         }
     }
 }

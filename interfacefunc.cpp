@@ -131,14 +131,14 @@ void Interface::getSensorState(QByteArray msg)
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
 
 
-    if (msg == "1"){
+    if (msg == "1" || "3"){
 
         qDebug() << "test activation de couleur capteur Lumiere";
 
         lightLux->setProperty("color", "c01414");
         lightLux->setProperty ("active", "true");
     }
-    if (msg == "2"){
+    if (msg == "2" || "3"){
 
         qDebug() << "test activation de couleur capteur Ultrason";
 
