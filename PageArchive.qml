@@ -9,11 +9,7 @@ Page {
 
     header: Label {
         objectName: "headText"
-<<<<<<< HEAD
-        text: qsTr("Archive du :" + index + " Horodatage :" )
-=======
-        text: qsTr("Archive du :" + index + " Horodatage :" + Date.toLocaleString())
->>>>>>> 88bd0576b132f36d9119a5a007ccdc1de77e5ba5
+        text: qsTr("Archive du :" + index )
         color : "lightBlue"
         font.pointSize: 13
         padding: 10
@@ -33,7 +29,7 @@ Page {
             Layout.row: 0
             Layout.column: 1
             //anchors.top: parent.top
-            text:"Capteur de lumière : (valeur) \n horodatage :" + cpp.getDate(luxLabel)
+            text:"Capteur de lumière : (valeur) \n horodatage :"
             wrapMode: Text.WordWrap
 
         }
@@ -42,7 +38,7 @@ Page {
             objectName: "soundLabel"
             Layout.row: 1
             Layout.column: 1
-            text:"Capteur ultrason : (valeur) \n horodatage :" + cpp.getDate(soundLabel)
+            text:"Capteur ultrason : (valeur) \n horodatage :"
 
         }
     }
