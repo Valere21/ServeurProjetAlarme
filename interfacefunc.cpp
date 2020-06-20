@@ -96,7 +96,7 @@ void Interface::onNewConnection(){
 void Interface::onReadyRead(){
     //bool flag = true;
     qDebug() << Q_FUNC_INFO << "Test du onReadyRead";
-    QByteArray message;    
+    QByteArray message;
     message.clear();
 
     while (socket->bytesAvailable()){
@@ -132,12 +132,18 @@ void Interface::getSensorState(QByteArray msg)
 
 
     if (msg == "1"){
-    lightLux->setProperty("color", "c01414");
-    lightLux->setProperty ("active", "true");
+
+        qDebug() << "test activation de couleur capteur Lumiere";
+
+        lightLux->setProperty("color", "c01414");
+        lightLux->setProperty ("active", "true");
     }
     if (msg == "2"){
-    lightSound->setProperty("color", "c01414");
-    lightSound->setProperty ("active", "true");
+
+        qDebug() << "test activation de couleur capteur Ultrason";
+
+        lightSound->setProperty("color", "c01414");
+        lightSound->setProperty ("active", "true");
     }
 }
 
