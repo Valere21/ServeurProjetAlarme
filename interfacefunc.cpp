@@ -117,6 +117,12 @@ void Interface::writeSensorLux(QByteArray message){
     socket->write(message);
 }
 
+QString Interface::getDate()
+{
+    QString format = "dd_MM_yy HH-mm-ss-z";                                        //Configure le format -> ref doc QDateTime
+    QString date = QDateTime::currentDateTime().toString(format);
+}
+
 void Interface::getSensorState(QByteArray msg)
 {
     QObject* rootItem = (QObject*)rootObject();

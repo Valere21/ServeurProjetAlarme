@@ -31,7 +31,7 @@ public:
 
     void writeSensorLux(QByteArray message);
     void writeSensorSound(QByteArray message);
-
+    QString getDate();
 
 public slots:
     // void    handleChecker(int val);
