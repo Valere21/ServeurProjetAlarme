@@ -9,7 +9,11 @@ Page {
 
     header: Label {
         objectName: "headText"
+<<<<<<< HEAD
         text: qsTr("Archive du :" + index + " Horodatage :" )
+=======
+        text: qsTr("Archive du :" + index + " Horodatage :" + Date.toLocaleString())
+>>>>>>> 88bd0576b132f36d9119a5a007ccdc1de77e5ba5
         color : "lightBlue"
         font.pointSize: 13
         padding: 10
