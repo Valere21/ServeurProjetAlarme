@@ -1,13 +1,5 @@
 #ifndef Interface_H
 #define Interface_H
-
-
-//#include <QtCore/QObject>
-//#include <QtGui/QGuiApplication>
-//#include <QtQuick/QQuickView>
-//#include <QtQml/QQmlApplicationEngine>
-//#include <QtQml/QQmlContext>
-
 #include <QObject>
 #include <QtQuick>
 #include <QTcpSocket>
@@ -34,10 +26,7 @@ public:
     QString getDate();
 
 public slots:
-    // void    handleChecker(int val);
-    //void onGetValue(){}
 
-    //void msgDetect(QByteArray msg);
     void getSensorState(QByteArray msg);
 
     void luxDetect();
