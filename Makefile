@@ -1341,9 +1341,10 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtQml/qqmlerror.h \
 		../raspi/qt5pi/include/QtQml/QQmlContext \
 		../raspi/qt5pi/include/QtQml/qqmlcontext.h \
-		../raspi/qt5pi/include/QtNetwork/QTcpSocket \
-		../raspi/qt5pi/include/QtNetwork/qtcpsocket.h \
-		../raspi/qt5pi/include/QtNetwork/qabstractsocket.h \
+		archive.h \
+		../raspi/qt5pi/include/QtCore/QFile \
+		../raspi/qt5pi/include/QtCore/qfile.h \
+		../raspi/qt5pi/include/QtCore/qfiledevice.h \
 		interface.h \
 		../raspi/qt5pi/include/QtCore/QObject \
 		../raspi/qt5pi/include/QtQuick/QtQuick \
@@ -1383,8 +1384,6 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtCore/qelapsedtimer.h \
 		../raspi/qt5pi/include/QtCore/qdir.h \
 		../raspi/qt5pi/include/QtCore/qfileinfo.h \
-		../raspi/qt5pi/include/QtCore/qfile.h \
-		../raspi/qt5pi/include/QtCore/qfiledevice.h \
 		../raspi/qt5pi/include/QtCore/qdiriterator.h \
 		../raspi/qt5pi/include/QtCore/qeasingcurve.h \
 		../raspi/qt5pi/include/QtCore/qendian.h \
@@ -1607,10 +1606,12 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtCore/QString \
 		../raspi/qt5pi/include/QtCore/QUrl \
 		../raspi/qt5pi/include/QtCore/QVariant \
+		../raspi/qt5pi/include/QtNetwork/qabstractsocket.h \
 		../raspi/qt5pi/include/QtNetwork/qauthenticator.h \
 		../raspi/qt5pi/include/QtNetwork/qdnslookup.h \
 		../raspi/qt5pi/include/QtNetwork/qdtls.h \
 		../raspi/qt5pi/include/QtNetwork/qsslsocket.h \
+		../raspi/qt5pi/include/QtNetwork/qtcpsocket.h \
 		../raspi/qt5pi/include/QtNetwork/qsslerror.h \
 		../raspi/qt5pi/include/QtNetwork/qsslcertificate.h \
 		../raspi/qt5pi/include/QtNetwork/qssl.h \
@@ -1705,6 +1706,7 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtQuick/qsgtextureprovider.h \
 		../raspi/qt5pi/include/QtQuick/qsgvertexcolormaterial.h \
 		../raspi/qt5pi/include/QtQuick/qtquickversion.h \
+		../raspi/qt5pi/include/QtNetwork/QTcpSocket \
 		../raspi/qt5pi/include/QtNetwork/QTcpServer \
 		serial.h \
 		../raspi/qt5pi/include/QtSerialPort/QSerialPort \

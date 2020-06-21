@@ -9,11 +9,10 @@ Page {
 
     header: Label {
         objectName: "headText"
-
         text: qsTr("Archive du :" + index + " Horodatage :" )
         color : "lightBlue"
         font.pointSize: 13
-        padding: 1
+        padding: 10
     }
 
     GridLayout {
