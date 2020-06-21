@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.11
 Page {
 
    // anchors.fill:parent
-
+    objectName: "pageView"
 
     header: Label {
         objectName: "headText"
