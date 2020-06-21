@@ -1,3 +1,4 @@
+#include "interface.h"
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
@@ -5,7 +6,6 @@
 
 //#include <wiringPi.h>
 
-#include "interface.h"
 
 void Interface::onTest(){
 
@@ -143,7 +143,9 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty("color", "c01414");
         lightLux->setProperty ("active", "true");        
         lightSound->setProperty ("active", "false");
-        luxLText ->setProperty("text", "détection le" + date);
+        //luxLText ->setProperty("text", "détection le" + date);
+        qDebug() << date;
+
 
     }
     if (msg == "2"){
@@ -154,15 +156,16 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "true");        
         lightLux->setProperty ("active", "false");
        // soundText->setProperty("text", "détection le" + date);
-        qDebug() << Date;
+        qDebug() << date;
 
     }
     if (msg == "3"){
 
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
-        luxLText->setProperty("text", "détection le" + date);
+        //luxLText->setProperty("text", "détection le" + date);
         //soundText->setProperty("text", "détection le" + date);
+        qDebug() << date;
 
 
     }
