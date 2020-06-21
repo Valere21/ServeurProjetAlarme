@@ -153,7 +153,8 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty("color", "c01414");
         lightSound->setProperty ("active", "true");        
         lightLux->setProperty ("active", "false");
-        soundText->setProperty("text", "détection le" + date);
+       // soundText->setProperty("text", "détection le" + date);
+        qDebug() << Date;
 
     }
     if (msg == "3"){
@@ -161,7 +162,7 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
         luxLText->setProperty("text", "détection le" + date);
-        soundText->setProperty("text", "détection le" + date);
+        //soundText->setProperty("text", "détection le" + date);
 
 
     }
