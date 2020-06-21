@@ -116,6 +116,7 @@ void Interface::getSensorState(QByteArray msg)
     QString date = QDateTime::currentDateTime().toString(format);
 
     QObject* rootItem = (QObject*)rootObject();
+    QObject* pageDisplay = rootItem->findChild<QObject*>("pageView");
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
   //  QObject* luxLabel = rootItem->findChild<QObject*>("luxLabel");
@@ -135,6 +136,7 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "true");        
         lightSound->setProperty ("active", "false");
         //luxLabel->setProperty("text", "détection le");
+        pageDisplay->setProperty("visibility", "true");
         qDebug() << date;
 
     }
@@ -146,6 +148,8 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "true");        
         lightLux->setProperty ("active", "false");
         soundLabel->setProperty("text", "détection le" + date);
+        pageDisplay->setProperty("visibility", "true");
+
         qDebug() << date;
     }
     if (msg == "3"){
@@ -154,6 +158,8 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "true");
        // luxLabel->setProperty("text", "détection le" );
        // soundLabel->setProperty("text", "détection le" );
+        pageDisplay->setProperty("visibility", "true");
+
         qDebug() << date;
     }
 }
