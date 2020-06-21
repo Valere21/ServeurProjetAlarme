@@ -9,14 +9,11 @@ Page {
 
     header: Label {
         objectName: "headText"
-<<<<<<< HEAD
-        text: qsTr("Archive du :" + index )
-=======
+
         text: qsTr("Archive du :" + index + " Horodatage :" )
->>>>>>> 18358d90cbee245ab24f4d4afd95a98be6a20516
         color : "lightBlue"
         font.pointSize: 13
-        padding: 10
+        padding: 1
     }
 
     GridLayout {
@@ -33,11 +30,7 @@ Page {
             Layout.row: 0
             Layout.column: 1
             //anchors.top: parent.top
-<<<<<<< HEAD
             text:"Capteur de lumière : (valeur) \n horodatage :"
-=======
-            text:"Capteur de lumière : (valeur) \n horodatage :" + cpp.getDate(soundLabel)
->>>>>>> 18358d90cbee245ab24f4d4afd95a98be6a20516
             wrapMode: Text.WordWrap
 
         }
