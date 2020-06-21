@@ -145,7 +145,7 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty("color", "c01414");
         lightSound->setProperty ("active", "true");        
         lightLux->setProperty ("active", "false");
-        soundLabel->setProperty("text", "détection le" );
+        soundLabel->setProperty("text", "détection le");
 
         qDebug() << date;
     }
