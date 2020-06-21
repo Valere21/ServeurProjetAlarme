@@ -31,7 +31,6 @@ public slots:
 
     void luxDetect();
     void soundDetect();
-    void onTest();
 
     void onNewConnection();
     void onReadyRead();
