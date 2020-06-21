@@ -7,15 +7,7 @@
 
 #include "interface.h"
 
-void Interface::onTest(){
 
-    qDebug() << "Test du QML";
-
-    QObject* obj = (QObject*)rootObject();                      // l'objet root est l'objet le plus haut soit la Window (l'Item). Il est indsipensable de créer un Item à la racine pour utiliser la fct findChild (création de l'item Parent pour appeller un item fille)
-    QObject* obj2 = obj->findChild<QObject*>("rect");           //Pour toucher un item en particulier il lui set un name  et les caractéristiques que l'on souhaite modifié
-    obj2->setProperty("color", "lightpurple");
-
-}
 
 void  Interface::init(){
 
@@ -132,6 +124,7 @@ void Interface::getSensorState(QByteArray msg)
 
         lightLux->setProperty ("active", "false");
         lightSound->setProperty ("active", "false");
+        qDebug() << date;
     }
 
     if (msg == "1" ){                     //test capteur lumière
@@ -142,6 +135,7 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "true");        
         lightSound->setProperty ("active", "false");
         //luxLabel->setProperty("text", "détection le");
+        qDebug() << date;
 
     }
     if (msg == "2"){
@@ -152,7 +146,7 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "true");        
         lightLux->setProperty ("active", "false");
        // soundLabel->setProperty("text", "détection le");
-
+        qDebug() << date;
     }
     if (msg == "3"){
 
@@ -160,11 +154,19 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "true");
        // luxLabel->setProperty("text", "détection le" );
        // soundLabel->setProperty("text", "détection le" );
-
-
+        qDebug() << date;
     }
-
 }
+
+
+QString Interface::getDate(){
+
+    QString format = "dd_MM_yy HH-mm-ss-z";                                        //Configure le format -> ref doc QDateTime
+    QString date = QDateTime::currentDateTime().toString(format);
+
+    return  date;
+}
+
 
 void Interface::socketError(QAbstractSocket::SocketError socketError){
 
