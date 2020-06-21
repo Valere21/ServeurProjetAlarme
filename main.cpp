@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     Interface InterfaceQML;
-    Serial lecture;
 
     return app.exec();
 }
