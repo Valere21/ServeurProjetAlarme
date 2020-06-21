@@ -147,8 +147,9 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty("color", "c01414");
         lightSound->setProperty ("active", "true");        
         lightLux->setProperty ("active", "false");
+	pageDisplay->setProperty("visibility", "true");
         soundLabel->setProperty("text", "détection le" + date);
-        pageDisplay->setProperty("visibility", "true");
+        
 
         qDebug() << date;
     }
@@ -159,7 +160,7 @@ void Interface::getSensorState(QByteArray msg)
        // luxLabel->setProperty("text", "détection le" );
        // soundLabel->setProperty("text", "détection le" );
         pageDisplay->setProperty("visibility", "true");
-
+        soundLabel->setProperty("text", "détection le" + date);
         qDebug() << date;
     }
 }
