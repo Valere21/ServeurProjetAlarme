@@ -155,7 +155,7 @@ void Interface::getSensorState(QByteArray msg)
 
 QString Interface::getDate(){
 
-    QString format = "dd_MM_yy HH-mm-ss-z";                                        //Configure le format -> ref doc QDateTime
+    QString format = "dd_MM_yy HH-mm-ss";                                        //Configure le format -> ref doc QDateTime
     QString date = QDateTime::currentDateTime().toString(format);
 
     return  date;
