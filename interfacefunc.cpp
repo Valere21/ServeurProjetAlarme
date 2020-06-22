@@ -153,13 +153,8 @@ void Interface::getSensorState(QByteArray msg)
 
 QString Interface::getDate(){
 
-    QObject* rootItem = (QObject*)rootObject();                      // l'objet root est l'objet le plus haut soit la Window (l'Item). Il est indsipensable
-
-
     QString format = "dd/MM/yy HH-mm-ss";                                        //Configure le format -> ref doc QDateTime
     QString date = QDateTime::currentDateTime().toString(format);
-
-
 
     return  date;
 }
