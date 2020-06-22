@@ -14,7 +14,7 @@ Page {
         objectName: "headText"
 
         text: qsTr("Archive du :" + index + "le : " + cpp.getDate())
-        color : "lightBlue"
+        color : "#0000ff"
         font.pointSize: 13
         padding: 10
     }
