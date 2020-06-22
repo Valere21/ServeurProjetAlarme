@@ -13,7 +13,7 @@ Page {
     header: Label {
         objectName: "headText"
 
-        text: qsTr("Archive du :" + index + "le : " + cpp.getDate())
+        text: qsTr("Archive du :" + cpp.getDate())
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
@@ -45,6 +45,9 @@ Page {
             text:"Capteur ultrason : (valeur) \n horodatage :"
 
         }
+    }
+    footer: Label {
+        text: "page n° " + index
     }
 }
 
