@@ -143,7 +143,7 @@ Rectangle {
             Connections {
                     target: nextButt
                     onClicked: {
-                        pageArch.header.text = qsTr (cpp.getDate())
+                        pageArch.header.text = qsTr (cpp.getDate(cpp.getDate()))
                     }
                 }
         }
