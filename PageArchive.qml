@@ -9,7 +9,7 @@ Page {
 
     header: Label {
         objectName: "headText"
-        text: qsTr("Archive du :" + index + " Horodatage :" + Date.toLocaleString(Qt.locale("de_DE")))
+        text: qsTr("Archive du :" + index + " Horodatage :" + Date.toLocaleString(cpp.getDate()))
         color : "lightBlue"
         font.pointSize: 13
         padding: 10

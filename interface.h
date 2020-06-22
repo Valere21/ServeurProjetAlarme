@@ -23,26 +23,20 @@ public:
 
     void writeSensorLux(QByteArray message);
     void writeSensorSound(QByteArray message);
-    QString getDate();
+
 
 public slots:
 
+    QString getDate();
     void getSensorState(QByteArray msg);
-
     void luxDetect();
     void soundDetect();
-
     void onNewConnection();
     void onReadyRead();
-
     void socketStateChanged (QAbstractSocket::SocketState socketState);
     void socketError(QAbstractSocket::SocketError socketError);
     void socketDisconnected();
-
-
     void displayArchive();
-
-
 
 private slots:
     void    viewChanger(int id);
