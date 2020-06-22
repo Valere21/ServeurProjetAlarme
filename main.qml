@@ -125,7 +125,7 @@ Rectangle {
                 onClicked: {
                     if (swipeView.currentIndex < swipeView.count -1)                        swipeView.currentIndex = swipeView.currentIndex +1
                 }
-                PageArchive.header.text : cpp.getDate()
+                PageArchive.header.text : qsTr (cpp.getDate())
             }
 
             Button {
