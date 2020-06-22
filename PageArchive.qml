@@ -20,15 +20,17 @@ Page {
 
     }
 
-    /*
+
     header: Label {
+
         objectName: "headText"
 
         text: qsTr("Archive du :" + cpp.getDate())
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
-    }*/
+
+    }
 
     GridLayout {
         id: grid

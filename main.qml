@@ -91,11 +91,6 @@ Rectangle {
                 model: 30
 
                 PageArchive {
-
-                    header: Label {
-                        visible: true
-                        text: qsTr(cpp.getDate()) }
-
                     // anchors.fill: repeat
                 }
 
@@ -128,9 +123,9 @@ Rectangle {
                 text: qsTr("Next")
                 Layout.fillWidth: true
                 onClicked: {
-                    if (swipeView.currentIndex < swipeView.count -1)
-                        swipeView.currentIndex = swipeView.currentIndex +1
+                    if (swipeView.currentIndex < swipeView.count -1)                        swipeView.currentIndex = swipeView.currentIndex +1
                 }
+                PageArchive.header.text : cpp.getDate()
             }
 
             Button {
