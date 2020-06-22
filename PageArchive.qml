@@ -13,7 +13,7 @@ Page {
     header: Label {
         objectName: "headText"
 
-        text: qsTr("Archive du :" + index + " Horodatage :" + Date.fromLocaleDateString(locale,cpp.getDate()))
+        text: qsTr("Archive du :" + index + " Horodatage :" + cpp.getDate())
         color : "lightBlue"
         font.pointSize: 13
         padding: 10
