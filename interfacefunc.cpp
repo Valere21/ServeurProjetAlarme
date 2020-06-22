@@ -111,10 +111,6 @@ void Interface::writeSensorLux(QByteArray message){
 
 void Interface::getSensorState(QByteArray msg)
 {
-
-    QString format = "dd_MM_yy HH-mm-ss-z";                                        //Configure le format -> ref doc QDateTime
-    QString date = QDateTime::currentDateTime().toString(format);
-
     QObject* rootItem = (QObject*)rootObject();
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
@@ -124,7 +120,6 @@ void Interface::getSensorState(QByteArray msg)
 
         lightLux->setProperty ("active", "false");
         lightSound->setProperty ("active", "false");
-        qDebug() << date;
     }
 
     if (msg == "1" ){                     //test capteur lumière
@@ -135,7 +130,6 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "false");
         //luxLabel->setProperty("text", "détection le");
-        qDebug() << date;
 
     }
     if (msg == "2"){
@@ -147,7 +141,6 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "false");
         //soundLabel->setProperty("text", "détection le");
 
-        qDebug() << date;
     }
     if (msg == "3"){
 
@@ -156,7 +149,6 @@ void Interface::getSensorState(QByteArray msg)
         // luxLabel->setProperty("text", "détection le" );
         // soundLabel->setProperty("text", "détection le" );
 
-        qDebug() << date;
     }
 }
 
