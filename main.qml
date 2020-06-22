@@ -91,6 +91,7 @@ Rectangle {
                 model: 30
 
                 PageArchive {
+                    id : pageArch
                     // anchors.fill: repeat
                 }
 
@@ -125,7 +126,7 @@ Rectangle {
                 onClicked: {
                     if (swipeView.currentIndex < swipeView.count -1)                        swipeView.currentIndex = swipeView.currentIndex +1
                 }
-                PageArchive.header.text : qsTr (cpp.getDate())
+              // pageArch.header.text : qsTr (cpp.getDate())
             }
 
             Button {
@@ -138,6 +139,13 @@ Rectangle {
 
                 }
             }
+
+            Connections {
+                    target: nextButt
+                    onClicked: {
+                        pageArch.header.text = qsTr (cpp.getDate())
+                    }
+                }
         }
     }
 
