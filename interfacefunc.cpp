@@ -3,8 +3,6 @@
 #include <QtQml/QQmlContext>
 #include <QTcpSocket>
 
-//#include <wiringPi.h>
-
 #include "interface.h"
 
 
