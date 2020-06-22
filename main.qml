@@ -94,7 +94,7 @@ Rectangle {
 
                     header: Label {
                         visible: true
-                        text:qstr(cpp.getDate()) }
+                        text: qsTr(cpp.getDate()) }
 
                     // anchors.fill: repeat
                 }
