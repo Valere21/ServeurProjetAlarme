@@ -7,10 +7,11 @@ Page {
    // anchors.fill:parent
     objectName: "pageView"
 
-    property date currentDate: new Date()
+
 
 
     header: Label {
+        property date currentDate: new Date()
         objectName: "headText"
 
         text: qsTr("Archive du :" + index + " Horodatage :" + cpp.getDate())
