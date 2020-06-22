@@ -6,14 +6,14 @@ Page {
 
    // anchors.fill:parent
     objectName: "pageView"
-    property var locale: Qt.locale()
+
     property date currentDate: new Date()
 
 
     header: Label {
         objectName: "headText"
 
-        text: qsTr("Archive du :" + index + " Horodatage :" + Date.fromLocaleDateString(Qt.locale(),cpp.getDate()))
+        text: qsTr("Archive du :" + index + " Horodatage :" + Date.fromLocaleDateString(locale,cpp.getDate()))
         color : "lightBlue"
         font.pointSize: 13
         padding: 10
