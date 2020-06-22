@@ -92,6 +92,8 @@ Rectangle {
 
                 PageArchive {
 
+                    header: Label {  text:qstr(cpp.getDate()) }
+
                     // anchors.fill: repeat
                 }
 

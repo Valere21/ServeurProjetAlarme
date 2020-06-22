@@ -7,9 +7,20 @@ Page {
    // anchors.fill:parent
     objectName: "pageView"
 
-    property date currentDate: new Date()
+    Repeater{
+
+        InfoLayout{
+
+            id: infoLayout
+
+            model: 30
 
 
+        }
+
+    }
+
+    /*
     header: Label {
         objectName: "headText"
 
@@ -17,13 +28,13 @@ Page {
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
-    }
+    }*/
 
     GridLayout {
         id: grid
+        anchors.fill: parent
         rows: 2
         columns: 2
-        anchors.fill: parent
 
       //  Layout.fillHeight: true
       //  Layout.fillWidth: true
@@ -47,6 +58,7 @@ Page {
         }
     }
     footer: Label {
+        color: "#0000ff"
         text: "page n° " + index
     }
 }
