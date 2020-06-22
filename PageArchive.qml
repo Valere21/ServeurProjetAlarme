@@ -6,11 +6,14 @@ Page {
 
    // anchors.fill:parent
     objectName: "pageView"
+    property var locale: Qt.locale()
+    property date currentDate: new Date()
+
 
     header: Label {
         objectName: "headText"
-        text: qsTr("Archive du :" + index + " Horodatage :" + Date.toLocaleString('en-FR', { timeZone: 'UTC' }));
-        // text: qsTr("Archive du :" + index + " Horodatage :" + Date.toLocaleString(Qt.LocalDate,cpp.getDate(),"dd_MM_yy HH-mm-ss"))
+
+        text: qsTr("Archive du :" + index + " Horodatage :" + Date.fromLocaleDateString(Qt.locale(),cpp.getDate()))
         color : "lightBlue"
         font.pointSize: 13
         padding: 10
