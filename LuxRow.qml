@@ -14,7 +14,7 @@ Item {
     TextArea {
         objectName: "sensorLuxValue"
         id: textAreaSound
-        text: "détection ?"
+        text: "détection de lumière ?"
         anchors.right: statusUltraSound.left
         anchors.rightMargin: 5
         anchors.bottom: parent.bottom

@@ -8,7 +8,6 @@
 
 Interface::Interface(QWindow *parent) : QQuickView(parent)
 {
-    Archive ObjArchive;
 
     connect (&lecture,SIGNAL (sendSensorState(QByteArray)),this, SLOT (getSensorState(QByteArray)));
 
