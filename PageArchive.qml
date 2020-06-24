@@ -13,14 +13,6 @@ Page {
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
-    }
-
-    GridLayout {
-        id: grid
-        objectName: "gridLabel"
-        anchors.fill: parent
-        rows: 10
-        columns: 2
         property var varSensor: "lorem ipsum "
         onVarSensorChanged: {
             if (cpp.getIndexArchive() === true){
@@ -37,6 +29,14 @@ Page {
                 }
             }
         }
+    }
+
+    GridLayout {
+        id: grid
+        objectName: "gridLabel"
+        anchors.fill: parent
+        rows: 10
+        columns: 2
 
         Label {
 
