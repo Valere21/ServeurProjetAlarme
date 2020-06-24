@@ -72,7 +72,6 @@ Rectangle {
         SwipeView {
 
             id: swipeView
-            index: 0
             //currentIndex: 5
             anchors.left: columnLayout.right
             anchors.leftMargin: 10

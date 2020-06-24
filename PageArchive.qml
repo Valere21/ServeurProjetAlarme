@@ -7,22 +7,7 @@ Page {
     id : page
     objectName: "pageView"
 
-    property var varSensor: "lorem ipsum "
-    onVarSensorChanged: {
-        if (cpp.getIndexArchive() === true){
 
-            if (cpp.getState() === 1 ){
-                cpp.addLuxDetection()
-            }
-            else if (cpp.getState() === 2){
-                cpp.addSoundDetection()
-            }
-            else if (cpp.getState() === 3){
-                cpp.addLuxDetection();
-                cpp.addSoundDetection();
-            }
-        }
-    }
     header: Label {
         objectName: "headText"
         text: qsTr("Archive du :" + cpp.getDate(cpp.getDate))
@@ -51,6 +36,22 @@ Page {
     footer: Label {
         color: "#0000ff"
         text: "page n° " + index
+    }
+    property var varSensor: "lorem ipsum "
+    onVarSensorChanged: {
+        if (cpp.getIndexArchive() === true){
+
+            if (cpp.getState() === 1 ){
+                cpp.addLuxDetection()
+            }
+            else if (cpp.getState() === 2){
+                cpp.addSoundDetection()
+            }
+            else if (cpp.getState() === 3){
+                cpp.addLuxDetection();
+                cpp.addSoundDetection();
+            }
+        }
     }
 }
 
