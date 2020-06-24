@@ -4,6 +4,5 @@
         <file>PageArchive.qml</file>
         <file>UltraSoundRow.qml</file>
         <file>LuxRow.qml</file>
-        <file>InfoLayout.qml</file>
     </qresource>
 </RCC>

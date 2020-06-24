@@ -105,6 +105,29 @@ void Interface::writeSensorLux(QByteArray message){
     socket->write(message);
 }
 
+void Interface::addLuxDetection(QByteArray msg){
+    QObject* rootItem = (QObject*)rootObject();
+    QObject* labelArchiveLux = rootItem->findChild<QObject*>("labelArchiveLux");
+    if (m_flag == true){
+        if (msg == "1"){
+            m_indexArchive++;
+            labelArchiveLux->setProperty("text", "Détection de lumière le :" + getDate());
+        }
+    }
+}
+
+void Interface::addSoundDetection(QByteArray msg){
+    QObject* rootItem = (QObject*)rootObject();
+    QObject* labelArchiveSound = rootItem->findChild<QObject*>("labelArchiveSound");
+
+    if (m_flag == true){
+        if (msg == "2"){
+            m_indexArchive++;
+            labelArchiveSound->setProperty("text", "Détection de lumière le :" + getDate());
+        }
+    }
+}
+
 void Interface::getSensorState(QByteArray msg)
 {
     QObject* rootItem = (QObject*)rootObject();
@@ -113,7 +136,7 @@ void Interface::getSensorState(QByteArray msg)
     //  QObject* luxLabel = rootItem->findChild<QObject*>("luxLabel");
     // QObject* soundLabel = rootItem->findChild<QObject*>("soundLabel");
     if (msg == "0"){
-
+        m_flag = true;
         lightLux->setProperty ("active", "false");
         lightSound->setProperty ("active", "false");
     }

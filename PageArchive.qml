@@ -7,18 +7,6 @@ Page {
    // anchors.fill:parent
     objectName: "pageView"
 
-    Repeater{
-
-        InfoLayout{
-
-            id: infoLayout
-
-            model: 30
-
-        }
-
-    }
-
 
     header: Label {
 
@@ -34,12 +22,23 @@ Page {
     GridLayout {
         id: grid
         anchors.fill: parent
-        rows: 2
+        rows: 10
         columns: 2
 
       //  Layout.fillHeight: true
       //  Layout.fillWidth: true
 
+        Label {
+            objectName: "labelArchiveSound"
+            Layout.row: cpp.getIndexArchive();
+            Layout.column: 1
+        }
+        Label {
+            objectName: "labelArchiveLux"
+            Layout.row: cpp.getIndexArchive();
+            Layout.column: 2
+        }
+        /*
         Label {
             objectName: "luxLabel"
             Layout.row: 0
@@ -56,7 +55,7 @@ Page {
             Layout.column: 1
             text:"Capteur ultrason : (valeur) \n horodatage :"
 
-        }
+        }*/
     }
     footer: Label {
         color: "#0000ff"
