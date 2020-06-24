@@ -610,7 +610,6 @@ compiler_rcc_clean:
 qrc_qml.cpp: qml.qrc \
 		../raspi/qt5/bin/rcc \
 		PageArchive.qml \
-		InfoLayout.qml \
 		LuxRow.qml \
 		main.qml \
 		UltraSoundRow.qml
