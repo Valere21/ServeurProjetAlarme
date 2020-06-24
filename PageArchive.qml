@@ -4,65 +4,49 @@ import QtQuick.Layouts 1.11
 
 Page {
 
-   // anchors.fill:parent
     objectName: "pageView"
-
-
     header: Label {
-
+        
         objectName: "headText"
-
+        
         text: qsTr("Archive du :" + cpp.getDate(cpp.getDate))
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
-
+        
     }
-
+    
     GridLayout {
         id: grid
         anchors.fill: parent
         rows: 10
         columns: 2
 
-      //  Layout.fillHeight: true
-      //  Layout.fillWidth: true
-
         Label {
-            objectName: "labelArchiveSound"
-            Layout.row: cpp.getIndexArchive();
-            Layout.column: 1
+            objectName: "labelArchive"
+            property var varSensor: "lorem ipsum"
+            onVarSensorChanged: {
+                if (cpp.getIndexArchive() === true){
+
+                    if (cpp.getState() === 1 ){
+                        cpp.addLuxDetection()
+                    }
+                    else if (cpp.getState() === 2){
+                        cpp.addSoundDetection()
+                    }
+                    else if (cpp.getState() === 3){
+                        cpp.addLuxDetection();
+                        cpp.addSoundDetection();
+                    }
+                }
+            }
         }
-        Label {
-            objectName: "labelArchiveLux"
-            Layout.row: cpp.getIndexArchive();
-            Layout.column: 2
-        }
-        /*
-        Label {
-            objectName: "luxLabel"
-            Layout.row: 0
-            Layout.column: 1
-            //anchors.top: parent.top
-            text:"Capteur de lumière : (valeur) \n horodatage :"
-            wrapMode: Text.WordWrap
-
-        }
-
-        Label {
-            objectName: "soundLabel"
-            Layout.row: 1
-            Layout.column: 1
-            text:"Capteur ultrason : (valeur) \n horodatage :"
-
-        }*/
     }
     footer: Label {
         color: "#0000ff"
         text: "page n° " + index
     }
 }
-
 
 /*##^##
 Designer {

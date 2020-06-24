@@ -22,15 +22,17 @@ public:
     void init();
 
     void writeSensorLux(QByteArray message);
-    void writeSensorSound(QByteArray message);
+    void writeSensorSound(QByteArray message);    
 
 
 public slots:
 
     QString getDate();
+    QString getState();
+    bool getFlag(){return m_flag;}
+    void addLuxDetection();
+    void addSoundDetection();
     void getSensorState(QByteArray msg);
-    void addLuxDetection(QByteArray msg);
-    void addSoundDetection(QByteArray msg);
     void luxDetect();
     void soundDetect();
     void onNewConnection();
@@ -40,6 +42,7 @@ public slots:
     void socketDisconnected();
     void displayArchive();
     int getIndexArchive(){return m_indexArchive;}
+
 private slots:
     void    viewChanger(int id);
     void    loadMain();
@@ -47,6 +50,7 @@ private slots:
 
 
 private:
+    QString m_valSensor;
     bool m_flag = false;
     int m_indexArchive = 0;
     QTcpServer *server =  nullptr;

@@ -105,36 +105,41 @@ void Interface::writeSensorLux(QByteArray message){
     socket->write(message);
 }
 
-void Interface::addLuxDetection(QByteArray msg){
+void Interface::addLuxDetection(){
+
     QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArchiveLux = rootItem->findChild<QObject*>("labelArchiveLux");
-    if (m_flag == true){
-        if (msg == "1"){
-            m_indexArchive++;
-            labelArchiveLux->setProperty("text", "Détection de lumière le :" + getDate());
-        }
-    }
+    QObject* labelArchive = rootItem->findChild<QObject*>("labelArchive");
+    QString msg = "Détection du capteur de lumière le :" + getDate();
+
+    labelArchive->setProperty("text", msg);
+}
+void Interface::addSoundDetection(){
+
+    QObject* rootItem = (QObject*)rootObject();
+    QObject* labelArchive = rootItem->findChild<QObject*>("labelArchive");
+    QString msg = "Détection du capteur à ultrason le :" + getDate();
+
+    labelArchive->setProperty("text", msg);
 }
 
-void Interface::addSoundDetection(QByteArray msg){
-    QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArchiveSound = rootItem->findChild<QObject*>("labelArchiveSound");
 
-    if (m_flag == true){
-        if (msg == "2"){
-            m_indexArchive++;
-            labelArchiveSound->setProperty("text", "Détection de lumière le :" + getDate());
-        }
-    }
+QString Interface::getState(){
+
+    return m_valSensor;
 }
 
 void Interface::getSensorState(QByteArray msg)
-{
+{   
+    m_valSensor = msg;
     QObject* rootItem = (QObject*)rootObject();
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
+
     //  QObject* luxLabel = rootItem->findChild<QObject*>("luxLabel");
     // QObject* soundLabel = rootItem->findChild<QObject*>("soundLabel");
+    //labelSensor->setProperty("text")
+
+
     if (msg == "0"){
         m_flag = true;
         lightLux->setProperty ("active", "false");
@@ -148,8 +153,6 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty("color", "c01414");
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "false");
-        //luxLabel->setProperty("text", "détection le");
-
     }
     if (msg == "2"){
 
@@ -174,7 +177,7 @@ void Interface::getSensorState(QByteArray msg)
 
 QString Interface::getDate(){
 
-    QString format = "dd/MM/yy HH-mm-ss";                                        //Configure le format -> ref doc QDateTime
+    QString format = "dd/MM/yy HH:mm:ss";                                        //Configure le format -> ref doc QDateTime
     QString date = QDateTime::currentDateTime().toString(format);
 
 
