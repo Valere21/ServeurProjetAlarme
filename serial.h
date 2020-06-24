@@ -27,7 +27,7 @@ public slots:
 
     void onReadyRead();
 
-private:
+protected:
 
     QSerialPort *m_pinRX = nullptr;
     QList<QSerialPortInfo> m_listPort;

@@ -140,8 +140,8 @@ void Interface::getSensorState(QByteArray msg)
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
     QObject* labelArchive;
-    labelArchive->setParent(rootItem);
     labelArchive = rootItem->findChild<QObject*>("gridLabel");
+    labelArchive->setParent(rootItem);
     //QObject* labelArchive = rootItem->findChild<QObject*>("gridLabel");
 
     if (lightLux  == nullptr){
