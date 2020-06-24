@@ -25,6 +25,10 @@ Page {
         Label {
             objectName: "labelArchive"
             property var varSensor: "lorem ipsum"
+            text: varSensor
+            Layout.fillHeight: false
+            clip: false
+            Layout.fillWidth: true
             onVarSensorChanged: {
                 if (cpp.getIndexArchive() === true){
 

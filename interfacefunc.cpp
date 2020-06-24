@@ -135,11 +135,6 @@ void Interface::getSensorState(QByteArray msg)
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
 
-    //  QObject* luxLabel = rootItem->findChild<QObject*>("luxLabel");
-    // QObject* soundLabel = rootItem->findChild<QObject*>("soundLabel");
-    //labelSensor->setProperty("text")
-
-
     if (msg == "0"){
         m_flag = true;
         lightLux->setProperty ("active", "false");
