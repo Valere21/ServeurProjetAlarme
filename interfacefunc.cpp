@@ -134,6 +134,8 @@ void Interface::getSensorState(QByteArray msg)
     QObject* rootItem = (QObject*)rootObject();
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
+    QObject* labelArchive = rootItem->findChild<QObject*>("labelArchive");
+    labelArchive->setProperty("text", "val Change");
 
     if (msg == "0"){
         m_flag = true;
