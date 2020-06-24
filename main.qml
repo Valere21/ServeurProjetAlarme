@@ -92,7 +92,7 @@ Rectangle {
                 model: 30
 
                 PageArchive {
-                    //objectName: "pageArch"
+                    objectName: "pageArch"
                     id : pageArch
                     // anchors.fill: repeat
                 }
