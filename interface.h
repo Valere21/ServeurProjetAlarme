@@ -29,6 +29,8 @@ public slots:
 
     QString getDate();
     void getSensorState(QByteArray msg);
+    void addLuxDetection(QByteArray msg);
+    void addSoundDetection(QByteArray msg);
     void luxDetect();
     void soundDetect();
     void onNewConnection();
@@ -37,7 +39,7 @@ public slots:
     void socketError(QAbstractSocket::SocketError socketError);
     void socketDisconnected();
     void displayArchive();
-
+    int getIndexArchive(){return m_indexArchive;}
 private slots:
     void    viewChanger(int id);
     void    loadMain();
@@ -45,11 +47,11 @@ private slots:
 
 
 private:
-
+    bool m_flag = false;
+    int m_indexArchive = 0;
     QTcpServer *server =  nullptr;
     QTcpSocket *socket = nullptr;
     QList <QTcpSocket*> listSocket;
-
     Serial lecture;
     int m_pageId;
 };
