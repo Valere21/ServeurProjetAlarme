@@ -3,7 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.11
 
 Page {
-
+    id : page
     objectName: "pageView"
 
     header: Label {
@@ -13,13 +13,9 @@ Page {
         font.pointSize: 13
         padding: 10
     }
-    
-/*    function creationLabel(){
-    Qt.createComponent("labelArchive");
-}*/
+
     GridLayout {
         id: grid
-
         objectName: "gridLabel"
         anchors.fill: parent
         rows: 10
