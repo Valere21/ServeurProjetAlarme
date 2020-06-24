@@ -2,7 +2,6 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
-#include "archive.h"
 #include "interface.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,8 +23,6 @@ Interface::Interface(QWindow *parent) : QQuickView(parent)
     show();
 
 }
-
-
 
 /*
  * Gestion Close Event                              //Mettre cette fonction en commentaire à la création d'une classe qml

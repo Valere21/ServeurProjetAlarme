@@ -27,7 +27,7 @@ public:
 
 public slots:
 
-    QString getDate(QString currentDate);
+    QString getDate();
     void getSensorState(QByteArray msg);
     void luxDetect();
     void soundDetect();

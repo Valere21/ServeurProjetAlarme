@@ -15,13 +15,11 @@ void  Interface::init(){
         server = nullptr;
     }
 
-
     server =  new QTcpServer(this);
     server->listen(QHostAddress::Any, 4242);
     server->setMaxPendingConnections(1);
 
     connect(server, SIGNAL(newConnection()),this, SLOT(onNewConnection()));
-
 
 }
 
@@ -151,19 +149,12 @@ void Interface::getSensorState(QByteArray msg)
 }
 
 
-QString Interface::getDate(QString currentDate){
+QString Interface::getDate(){
 
     QString format = "dd/MM/yy HH-mm-ss";                                        //Configure le format -> ref doc QDateTime
     QString date = QDateTime::currentDateTime().toString(format);
 
-    if (currentDate == date){
 
-        for (int i = 0; i < 1000; i++){
-            int a = i;
-                a = 0;
-        }
-        date = QDateTime::currentDateTime().toString(format);
-    }
     return  date;
 }
 

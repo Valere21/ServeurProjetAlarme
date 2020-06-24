@@ -2,7 +2,6 @@
 #include <QQmlApplicationEngine>
 #include "interface.h"
 #include "serial.h"
-#include "archive.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
