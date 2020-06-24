@@ -19,11 +19,11 @@ Page {
 }
     GridLayout {
         id: grid
+        objectName: "gridLabel"
         anchors.fill: parent
         rows: 10
         columns: 2
         property var varSensor: "lorem ipsum"
-
         onVarSensorChanged: {
             if (cpp.getIndexArchive() === true){
 
