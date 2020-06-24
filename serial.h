@@ -34,7 +34,7 @@ protected:
 
     QByteArray m_msg;
     QByteArray m_msgAll;
-    bool m_flag = true;
+    bool m_flag = false;
 
 
 

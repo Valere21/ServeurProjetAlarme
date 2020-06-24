@@ -58,7 +58,6 @@ private:
     QList <QTcpSocket*> listSocket;
     Serial lecture;
     int m_pageId;
-    //QObject* labelArchive;
 };
 
 #endif // Interface_H
