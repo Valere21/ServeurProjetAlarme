@@ -7,28 +7,28 @@ Page {
     id : page
     objectName: "pageView"
 
+    property var varSensor: "lorem ipsum "
+    onVarSensorChanged: {
+        if (cpp.getIndexArchive() === true){
+
+            if (cpp.getState() === 1 ){
+                cpp.addLuxDetection()
+            }
+            else if (cpp.getState() === 2){
+                cpp.addSoundDetection()
+            }
+            else if (cpp.getState() === 3){
+                cpp.addLuxDetection();
+                cpp.addSoundDetection();
+            }
+        }
+    }
     header: Label {
         objectName: "headText"
         text: qsTr("Archive du :" + cpp.getDate(cpp.getDate))
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
-        property var varSensor: "lorem ipsum "
-        onVarSensorChanged: {
-            if (cpp.getIndexArchive() === true){
-
-                if (cpp.getState() === 1 ){
-                    cpp.addLuxDetection()
-                }
-                else if (cpp.getState() === 2){
-                    cpp.addSoundDetection()
-                }
-                else if (cpp.getState() === 3){
-                    cpp.addLuxDetection();
-                    cpp.addSoundDetection();
-                }
-            }
-        }
     }
 
     GridLayout {
