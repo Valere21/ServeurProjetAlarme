@@ -20,7 +20,7 @@ Page {
         anchors.fill: parent
         rows: 10
         columns: 2
-        property var varSensor: "lorem ipsum"
+        property var varSensor: "lorem ipsum "
         onVarSensorChanged: {
             if (cpp.getIndexArchive() === true){
 
@@ -40,7 +40,7 @@ Page {
         Label {
 
             objectName: "labelArchive"
-            text: "varSensor"
+            //text: "varSensor"
             Layout.fillHeight: false
             clip: false
             Layout.fillWidth: true
