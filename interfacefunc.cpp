@@ -149,10 +149,10 @@ void Interface::getSensorState(QByteArray msg)
         qDebug() << "lightSoundItem not found";
         return ;
     }
-   /* if (labelArchive == nullptr){
+    if (labelArchive == nullptr){
         qDebug() << "labelArchiveItem not found";
         return ;
-    }*/
+    }
     qDebug() << "labelArhive Found !";
     labelArchive->setProperty("varSensor", "val Change");
 
