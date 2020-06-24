@@ -108,18 +108,18 @@ void Interface::writeSensorLux(QByteArray message){
 void Interface::addLuxDetection(){
 
     QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArchive = rootItem->findChild<QObject*>("labelArchive");
+    QObject* labelArc = rootItem->findChild<QObject*>("labelArchive");
     QString msg = "Détection du capteur de lumière le :" + getDate();
 
-    labelArchive->setProperty("text", msg);
+    labelArc->setProperty("text", msg);
 }
 void Interface::addSoundDetection(){
 
     QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArchive = rootItem->findChild<QObject*>("labelArchive");
+    QObject* labelArc = rootItem->findChild<QObject*>("labelArchive");
     QString msg = "Détection du capteur à ultrason le :" + getDate();
 
-    labelArchive->setProperty("text", msg);
+    labelArc->setProperty("text", msg);
 }
 
 
@@ -139,7 +139,7 @@ void Interface::getSensorState(QByteArray msg)
     }
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
-    QObject* labelArchive = rootItem->findChild<QObject*>("swipeArchive");
+    QObject* labelArchive = rootItem->findChild<QObject*>("gridLabel");
 
     if (lightLux  == nullptr){
         qDebug() << "lightLuxItem not found";
@@ -155,11 +155,6 @@ void Interface::getSensorState(QByteArray msg)
     }
     qDebug() << "labelArhive Found !";
     labelArchive->setProperty("varSensor", "val Change");
-
-
-
-
-
 
     if (msg == "0"){
         m_flag = true;
@@ -227,6 +222,7 @@ void Interface::socketDisconnected(){
 void Interface::displayArchive(){
     static bool opacity = true;
 
+    addLuxDetection();
     QObject* rootItem = (QObject*)rootObject();                      // l'objet root est l'objet le plus haut soit la Window (l'Item). Il est indsipensable
     QObject* archiveButton = rootItem->findChild<QObject*>("swipeArchive");
     archiveButton->setProperty("opacity", opacity);

@@ -117,7 +117,6 @@ Rectangle {
                 Layout.fillHeight: false
                 Layout.fillWidth: true
                 onClicked: cpp.displayArchive()
-
             }
 
             Button {
