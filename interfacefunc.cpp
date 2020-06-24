@@ -139,7 +139,7 @@ void Interface::getSensorState(QByteArray msg)
     }
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
-    QObject* labelArchive = rootItem->findChild<QObject*>("labelArchive");
+    QObject* labelArchive = rootItem->findChild<QObject*>("varSensor");
 
     if (lightLux  == nullptr){
         qDebug() << "lightLuxItem not found";

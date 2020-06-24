@@ -37,6 +37,7 @@ Page {
         color: "#0000ff"
         text: "page n° " + index
     }
+
     property var varSensor: "lorem ipsum "
     onVarSensorChanged: {
         if (cpp.getIndexArchive() === true){
