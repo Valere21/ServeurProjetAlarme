@@ -135,7 +135,7 @@ void Interface::getSensorState(QByteArray msg)
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
     QObject* labelArchive = rootItem->findChild<QObject*>("gridLabel");
-    labelArchive->setProperty("text", "val Change");
+    labelArchive->setProperty("varSensor", "val Change");
 
     if (msg == "0"){
         m_flag = true;
