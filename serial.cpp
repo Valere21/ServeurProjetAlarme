@@ -43,7 +43,7 @@ void Serial::onReadyRead(){
 
     qDebug() << "test du read" << Q_FUNC_INFO;
 
-    m_msg.append(m_pinRX->readLine());
+    m_msg.append(m_pinRX->readAll());
     checkMsg();
 
 

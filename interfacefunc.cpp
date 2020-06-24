@@ -140,8 +140,8 @@ void Interface::getSensorState(QByteArray msg)
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
     //QObject* labelArchive;
-    labelArchive->setParent(rootItem);
-    labelArchive = rootItem->findChild<QObject*>("gridLabel");
+    //labelArchive->setParent(rootItem);
+    //labelArchive = rootItem->findChild<QObject*>("gridLabel");
     //QObject* labelArchive = rootItem->findChild<QObject*>("gridLabel");
 
     if (lightLux  == nullptr){
@@ -152,12 +152,12 @@ void Interface::getSensorState(QByteArray msg)
         qDebug() << "lightSoundItem not found";
         return ;
     }
-    if (labelArchive == nullptr){
+  /*  if (labelArchive == nullptr){
         qDebug() << "labelArchiveItem not found";
         return ;
     }
     labelArchive->setProperty("varSensor", "val Change");
-
+*/
 
 
 

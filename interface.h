@@ -56,9 +56,9 @@ private:
     QTcpServer *server =  nullptr;
     QTcpSocket *socket = nullptr;
     QList <QTcpSocket*> listSocket;
-    QObject* labelArchive;
     Serial lecture;
     int m_pageId;
+    //QObject* labelArchive;
 };
 
 #endif // Interface_H
