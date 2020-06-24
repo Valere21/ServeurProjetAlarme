@@ -43,7 +43,7 @@ void Serial::onReadyRead(){
 
     qDebug() << "test du read" << Q_FUNC_INFO;
 
-    m_msg.append(m_pinRX->readAll());
+    m_msg.append(m_pinRX->readLine());
     checkMsg();
 
 
@@ -62,8 +62,8 @@ void Serial::checkMsg(){
     while (i < m_msg.count()){
 
         if (m_msg.at(i) == '\n'){
-            m_msg.remove(0, i+1);
             m_msgAll = m_msg.left(i);
+            m_msg.remove(0, i+1);
             //m_msg.remove(0, i);
             qDebug() << m_msgAll << i;
             //m_msg.clear();
