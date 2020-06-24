@@ -14,11 +14,12 @@ Page {
         padding: 10
     }
     
-    function creationLabel(){
+/*    function creationLabel(){
     Qt.createComponent("labelArchive");
-}
+}*/
     GridLayout {
         id: grid
+
         objectName: "gridLabel"
         anchors.fill: parent
         rows: 10
