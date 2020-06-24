@@ -52,16 +52,14 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = archive.cpp \
-		interface.cpp \
+SOURCES       = interface.cpp \
 		interfacefunc.cpp \
 		interfaceview.cpp \
 		main.cpp \
 		serial.cpp qrc_qml.cpp \
 		moc_interface.cpp \
 		moc_serial.cpp
-OBJECTS       = archive.o \
-		interface.o \
+OBJECTS       = interface.o \
 		interfacefunc.o \
 		interfaceview.o \
 		main.o \
@@ -227,10 +225,8 @@ DIST          = ../raspi/qt5/mkspecs/features/spec_pre.prf \
 		../raspi/qt5/mkspecs/features/exceptions.prf \
 		../raspi/qt5/mkspecs/features/yacc.prf \
 		../raspi/qt5/mkspecs/features/lex.prf \
-		serverProjetAlarme.pro archive.h \
-		interface.h \
-		serial.h archive.cpp \
-		interface.cpp \
+		serverProjetAlarme.pro interface.h \
+		serial.h interface.cpp \
 		interfacefunc.cpp \
 		interfaceview.cpp \
 		main.cpp \
@@ -583,8 +579,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../raspi/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents archive.h interface.h serial.h $(DISTDIR)/
-	$(COPY_FILE) --parents archive.cpp interface.cpp interfacefunc.cpp interfaceview.cpp main.cpp serial.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents interface.h serial.h $(DISTDIR)/
+	$(COPY_FILE) --parents interface.cpp interfacefunc.cpp interfaceview.cpp main.cpp serial.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1170,84 +1166,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-archive.o: archive.cpp ../raspi/qt5pi/include/QtCore/QFile \
-		../raspi/qt5pi/include/QtCore/qfile.h \
-		../raspi/qt5pi/include/QtCore/qfiledevice.h \
-		../raspi/qt5pi/include/QtCore/qiodevice.h \
-		../raspi/qt5pi/include/QtCore/qglobal.h \
-		../raspi/qt5pi/include/QtCore/qconfig-bootstrapped.h \
-		../raspi/qt5pi/include/QtCore/qconfig.h \
-		../raspi/qt5pi/include/QtCore/qtcore-config.h \
-		../raspi/qt5pi/include/QtCore/qsystemdetection.h \
-		../raspi/qt5pi/include/QtCore/qprocessordetection.h \
-		../raspi/qt5pi/include/QtCore/qcompilerdetection.h \
-		../raspi/qt5pi/include/QtCore/qtypeinfo.h \
-		../raspi/qt5pi/include/QtCore/qsysinfo.h \
-		../raspi/qt5pi/include/QtCore/qlogging.h \
-		../raspi/qt5pi/include/QtCore/qflags.h \
-		../raspi/qt5pi/include/QtCore/qatomic.h \
-		../raspi/qt5pi/include/QtCore/qbasicatomic.h \
-		../raspi/qt5pi/include/QtCore/qatomic_bootstrap.h \
-		../raspi/qt5pi/include/QtCore/qgenericatomic.h \
-		../raspi/qt5pi/include/QtCore/qatomic_cxx11.h \
-		../raspi/qt5pi/include/QtCore/qatomic_msvc.h \
-		../raspi/qt5pi/include/QtCore/qglobalstatic.h \
-		../raspi/qt5pi/include/QtCore/qmutex.h \
-		../raspi/qt5pi/include/QtCore/qnumeric.h \
-		../raspi/qt5pi/include/QtCore/qversiontagging.h \
-		../raspi/qt5pi/include/QtCore/qobject.h \
-		../raspi/qt5pi/include/QtCore/qobjectdefs.h \
-		../raspi/qt5pi/include/QtCore/qnamespace.h \
-		../raspi/qt5pi/include/QtCore/qobjectdefs_impl.h \
-		../raspi/qt5pi/include/QtCore/qstring.h \
-		../raspi/qt5pi/include/QtCore/qchar.h \
-		../raspi/qt5pi/include/QtCore/qbytearray.h \
-		../raspi/qt5pi/include/QtCore/qrefcount.h \
-		../raspi/qt5pi/include/QtCore/qarraydata.h \
-		../raspi/qt5pi/include/QtCore/qstringliteral.h \
-		../raspi/qt5pi/include/QtCore/qstringalgorithms.h \
-		../raspi/qt5pi/include/QtCore/qstringview.h \
-		../raspi/qt5pi/include/QtCore/qstringbuilder.h \
-		../raspi/qt5pi/include/QtCore/qlist.h \
-		../raspi/qt5pi/include/QtCore/qalgorithms.h \
-		../raspi/qt5pi/include/QtCore/qiterator.h \
-		../raspi/qt5pi/include/QtCore/qhashfunctions.h \
-		../raspi/qt5pi/include/QtCore/qpair.h \
-		../raspi/qt5pi/include/QtCore/qbytearraylist.h \
-		../raspi/qt5pi/include/QtCore/qstringlist.h \
-		../raspi/qt5pi/include/QtCore/qregexp.h \
-		../raspi/qt5pi/include/QtCore/qstringmatcher.h \
-		../raspi/qt5pi/include/QtCore/qcoreevent.h \
-		../raspi/qt5pi/include/QtCore/qscopedpointer.h \
-		../raspi/qt5pi/include/QtCore/qmetatype.h \
-		../raspi/qt5pi/include/QtCore/qvarlengtharray.h \
-		../raspi/qt5pi/include/QtCore/qcontainerfwd.h \
-		../raspi/qt5pi/include/QtCore/qobject_impl.h \
-		../raspi/qt5pi/include/QtCore/QString \
-		../raspi/qt5pi/include/QtCore/QDir \
-		../raspi/qt5pi/include/QtCore/qdir.h \
-		../raspi/qt5pi/include/QtCore/qfileinfo.h \
-		../raspi/qt5pi/include/QtCore/qshareddata.h \
-		../raspi/qt5pi/include/QtCore/qhash.h \
-		../raspi/qt5pi/include/QtCore/QDebug \
-		../raspi/qt5pi/include/QtCore/qdebug.h \
-		../raspi/qt5pi/include/QtCore/qmap.h \
-		../raspi/qt5pi/include/QtCore/qtextstream.h \
-		../raspi/qt5pi/include/QtCore/qlocale.h \
-		../raspi/qt5pi/include/QtCore/qvariant.h \
-		../raspi/qt5pi/include/QtCore/qvector.h \
-		../raspi/qt5pi/include/QtCore/qpoint.h \
-		../raspi/qt5pi/include/QtCore/qset.h \
-		../raspi/qt5pi/include/QtCore/qcontiguouscache.h \
-		../raspi/qt5pi/include/QtCore/qsharedpointer.h \
-		../raspi/qt5pi/include/QtCore/qsharedpointer_impl.h \
-		../raspi/qt5pi/include/QtCore/QStandardPaths \
-		../raspi/qt5pi/include/QtCore/qstandardpaths.h \
-		../raspi/qt5pi/include/QtCore/QDateTime \
-		../raspi/qt5pi/include/QtCore/qdatetime.h \
-		archive.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o archive.o archive.cpp
-
 interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtGui/qguiapplication.h \
 		../raspi/qt5pi/include/QtGui/qtguiglobal.h \
@@ -1342,10 +1260,6 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtQml/qqmlerror.h \
 		../raspi/qt5pi/include/QtQml/QQmlContext \
 		../raspi/qt5pi/include/QtQml/qqmlcontext.h \
-		archive.h \
-		../raspi/qt5pi/include/QtCore/QFile \
-		../raspi/qt5pi/include/QtCore/qfile.h \
-		../raspi/qt5pi/include/QtCore/qfiledevice.h \
 		interface.h \
 		../raspi/qt5pi/include/QtCore/QObject \
 		../raspi/qt5pi/include/QtQuick/QtQuick \
@@ -1385,6 +1299,8 @@ interface.o: interface.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtCore/qelapsedtimer.h \
 		../raspi/qt5pi/include/QtCore/qdir.h \
 		../raspi/qt5pi/include/QtCore/qfileinfo.h \
+		../raspi/qt5pi/include/QtCore/qfile.h \
+		../raspi/qt5pi/include/QtCore/qfiledevice.h \
 		../raspi/qt5pi/include/QtCore/qdiriterator.h \
 		../raspi/qt5pi/include/QtCore/qeasingcurve.h \
 		../raspi/qt5pi/include/QtCore/qendian.h \
@@ -3114,9 +3030,7 @@ main.o: main.cpp ../raspi/qt5pi/include/QtGui/QGuiApplication \
 		../raspi/qt5pi/include/QtSerialPort/qserialport.h \
 		../raspi/qt5pi/include/QtSerialPort/qserialportglobal.h \
 		../raspi/qt5pi/include/QtSerialPort/QSerialPortInfo \
-		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h \
-		archive.h \
-		../raspi/qt5pi/include/QtCore/QFile
+		../raspi/qt5pi/include/QtSerialPort/qserialportinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 serial.o: serial.cpp serial.h \
