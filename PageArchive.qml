@@ -23,6 +23,7 @@ Page {
         columns: 2
 
         Label {
+
             objectName: "labelArchive"
             property var varSensor: "lorem ipsum"
             text: varSensor

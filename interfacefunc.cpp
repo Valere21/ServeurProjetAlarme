@@ -144,6 +144,7 @@ void Interface::getSensorState(QByteArray msg)
     }
 
     if (msg == "1" ){                     //test capteur lumière
+        m_flag = false;
 
         qDebug() << "test activation de couleur capteur Lumiere";
 
@@ -152,7 +153,7 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "false");
     }
     if (msg == "2"){
-
+        m_flag = false;
         qDebug() << "test activation de couleur capteur Ultrason";
 
         lightSound->setProperty("color", "c01414");
