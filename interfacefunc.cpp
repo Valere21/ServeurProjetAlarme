@@ -127,8 +127,8 @@ void Interface::addLuxDetection(){
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
                 if (m_nbrDetec == 10){
-                    m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_indexArchive++;
+                    m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_nbrDetec = 0;
                 }
         }
@@ -147,18 +147,16 @@ void Interface::addSoundDetection(){
         if (m_flag == true) {
             m_flag = false;
 
-            //m_labelList.at(1)->setProperty("text", msg);
-            //m_detectionList.append(m_labelList.at(m_indexArchive));
 
-                //m_labelList.at(m_indexArchive)->setProperty("text", msg);
-                result = m_labelList.at(m_indexArchive)->property("text").toString();
+                result = m_labelList.at(0)->property("text").toString();
                 result.append(msg);
-                m_labelList.at(0)->setProperty("text", result);
+                m_labelList.at(m_indexArchive)->setProperty("text", result);
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
                 if (m_nbrDetec == 10){
                     m_indexArchive++;
+                    m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_nbrDetec = 0;
                 }
         }
@@ -167,7 +165,24 @@ void Interface::addSoundDetection(){
     else if (  m_indexArchive >= 30){
         qDebug() <<  " m_index superieur a 30";
     }
+    if (m_indexArchive < 30){
+        if (m_flag == true) {
+            m_flag = false;
 
+
+                result = m_labelList.at(0)->property("text").toString();
+                result.append(msg);
+                m_labelList.at(m_indexArchive)->setProperty("text", result);
+
+                qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
+                m_nbrDetec++;
+                if (m_nbrDetec == 10){
+                    m_indexArchive++;
+                    m_swipe->setProperty("currentIndex", m_indexArchive );
+                    m_nbrDetec = 0;
+                }
+        }
+    }
 }
 
 
