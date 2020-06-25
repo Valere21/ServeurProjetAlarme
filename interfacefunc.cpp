@@ -133,8 +133,8 @@ void Interface::addSoundDetection(){
             m_flag = false;
 
             m_labelList.at(m_indexArchive)->setProperty("text", msg);
+            m_indexArchive = m_indexArchive + 1;
         }
-        m_indexArchive = m_indexArchive + 1;
     }
 
     else if (m_indexArchive >= 30){
