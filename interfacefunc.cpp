@@ -174,6 +174,7 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty("color", "c01414");
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "false");
+        addLuxDetection();
     }
     if (msg == "2"){
         m_flag = false;
