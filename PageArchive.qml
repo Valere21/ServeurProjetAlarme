@@ -5,7 +5,7 @@ import QtQuick.Extras 1.4
 
 Page {
     id : page
-    objectName: "pageView"
+
 
 
     header: Label {
