@@ -61,7 +61,7 @@ void Serial::checkMsg(){
     qDebug() << Q_FUNC_INFO << "Nombre d'élément dans le QByteArray de lecture :"  << m_msg.count();
     int i = 0;
 
-    while (i < m_msg.count()){
+    while (i < m_msg.count() || i == m_msg.count() ){
 
         if (m_msg.at(i) == '\n'){
             m_msgAll = m_msg.left(i);
