@@ -25,23 +25,27 @@ Page {
         rows: 10
         columns: 2
 
-        TextArea {
-            id: label
-            objectName: "labelTxt"
-            property var varSensor: "lorem ipsum "
+        ScrollView {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            text: varSensor
-            onVarSensorChanged: {
+            TextArea {
+                id: label
+                objectName: "labelTxt"
+                property var varSensor: "lorem ipsum "
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                text: varSensor
+                onVarSensorChanged: {
 
-                cpp.addLuxDetection()
-                cpp.addSoundDetection()
-            }
-            Component.onCompleted: {
-                console.log("labelTxt")
-                //cpp.registerLabel("labelTxt")
-               cpp.registerLabel(this)
+                    cpp.addLuxDetection()
+                    cpp.addSoundDetection()
+                }
+                Component.onCompleted: {
+                    console.log("labelTxt")
+                    //cpp.registerLabel("labelTxt")
+                    cpp.registerLabel(this)
 
+                }
             }
         }
     }
