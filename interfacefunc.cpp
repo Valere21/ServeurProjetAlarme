@@ -116,8 +116,6 @@ void Interface::addLuxDetection(){
     QString msg = "\n Détection du capteur de lumière le :" + getDate();
     QString result;
     if (m_indexArchive < 30){
-        if (m_flag == true) {
-            m_flag = false;
 
 
                 result = m_labelList.at(0)->property("text").toString();
@@ -131,7 +129,6 @@ void Interface::addLuxDetection(){
                     m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_nbrDetec = 0;
                 }
-        }
     }
     else if (  m_indexArchive >= 30){
         qDebug() <<  " m_index superieur a 30";
@@ -146,8 +143,6 @@ void Interface::addBothDetection(){
     QString result;
 
     if (m_indexArchive < 30){
-        if (m_flag == true) {
-            m_flag = false;
 
 
                 result = m_labelList.at(m_indexArchive)->property("text").toString();
@@ -162,7 +157,6 @@ void Interface::addBothDetection(){
                     m_nbrDetec = 0;
                     m_labelList.at(m_indexArchive)->setProperty("text", "" );
                 }
-        }
     }
 
 }
@@ -173,8 +167,6 @@ void Interface::addSoundDetection(){
     QString result;
 
     if (m_indexArchive < 30){
-        if (m_flag == true) {
-            m_flag = false;
 
 
                 result = m_labelList.at(m_indexArchive)->property("text").toString();
@@ -189,7 +181,6 @@ void Interface::addSoundDetection(){
                     m_nbrDetec = 0;
                     m_labelList.at(m_indexArchive)->setProperty("text", "" );
                 }
-        }
     }
 
     else if (  m_indexArchive >= 30){
@@ -227,16 +218,14 @@ void Interface::getSensorState(QByteArray msg)
     labelArchive->setProperty("text", "val Change");
 */
 
-
-    if (msg == "0"){
-        m_flag = true;
+    if (msg == "0" && m_flag != msg.toInt()){
         lightLux->setProperty ("active", "false");
         lightSound->setProperty ("active", "false");
         //addLuxDetection();
 
     }
 
-    if (msg == "1" ){                     //test capteur lumière
+    if (msg == "1" && m_flag != msg.toInt()){                     //test capteur lumière
 
         qDebug() << "test activation de couleur capteur Lumiere";
 
@@ -245,7 +234,7 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty ("active", "false");
         addLuxDetection();
     }
-    if (msg == "2"){
+    if (msg == "2" && m_flag != msg.toInt()){
         qDebug() << "test activation de couleur capteur Ultrason";
 
         lightSound->setProperty("color", "c01414");
@@ -255,13 +244,14 @@ void Interface::getSensorState(QByteArray msg)
         //soundLabel->setProperty("text", "détection le");
 
     }
-    if (msg == "3"){
+    if (msg == "3" && m_flag != msg.toInt()){
 
-        m_flag = true;
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
         addBothDetection();
     }
+    m_flag = msg.toInt();
+
 }
 
 
