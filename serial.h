@@ -46,6 +46,12 @@ protected:
     //Stocke Uniquement tout ce qui est avant un \n
     QByteArray m_msgAll;
 
+    //True si m_msgAll )
+    bool m_flag = false;
+
+
+
+    //QList <QSerialPort> m_listPort;
 };
 
 #endif // SERIAL_H

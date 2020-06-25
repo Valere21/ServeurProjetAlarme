@@ -110,39 +110,39 @@ void Interface::addLuxDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur de lumière le :" + getDate();
 
-    if (m_index == m_indexArchiveMax){
-        qDebug() << "index max";
-        m_index = 0;
+    if (m_indexArchive != 30){
+        if (m_flag == true){
+            m_labelList.at(m_indexArchive)->setProperty("text", msg);
+        }
+        m_indexArchive = m_indexArchive + 1;
+    }
+    else if (m_indexArchive >= 30){
+     qDebug() <<  " m_index superieur a 30";
     }
 
-    if (m_index != m_indexArchiveMax){
-        if (m_flag == true){
-            m_labelList.at(m_index)->setProperty("text", msg);
-        }
-        m_index = m_index + 1;
-    }
 }
 void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur ultrason le :" + getDate();
 
-    if (m_index == m_indexArchiveMax){
-        qDebug() << "index max";
-        m_index = 0;
-    }
-
-    if (m_index != m_indexArchiveMax){
+    if (m_indexArchive != m_labelList.size()){
         if (m_flag == true){
-            m_labelList.at(m_index)->setProperty("text", msg);
+            m_labelList.at(m_indexArchive)->setProperty("text", msg);
         }
-        m_index = m_index + 1;
+        m_indexArchive = m_indexArchive + 1;
     }
 
 }
 
 
+QString Interface::getState(){
+
+    return m_valSensor;
+}
+
 void Interface::getSensorState(QByteArray msg)
 {   
+    m_valSensor = msg;
     QObject* rootItem = (QObject*)rootObject();
 
     if (rootItem == nullptr){
@@ -242,7 +242,6 @@ void Interface::displayArchive(){
     QObject* rootItem = (QObject*)rootObject();                      // l'objet root est l'objet le plus haut soit la Window (l'Item). Il est indsipensable
     QObject* archiveButton = rootItem->findChild<QObject*>("swipeArchive");
     archiveButton->setProperty("opacity", opacity);
-
     opacity = !opacity;
 
 }
@@ -250,8 +249,7 @@ void Interface::displayArchive(){
 void Interface::registerLabel(QObject *obj)
 {
     m_labelList.append(obj);
-    //m_index = m_labelList.at(0);
-    m_indexArchiveMax = m_labelList.count();
+    m_indexArchive = 0;
     obj->setProperty("text", "initialized!!");
     qDebug()<< "register label";
     //addLuxDetection();

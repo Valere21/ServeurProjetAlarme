@@ -50,7 +50,7 @@ public slots:
     //Récupère les nouvelles connections TCP
     void onNewConnection();
 
-    //Stocke et lit  la requête client quand "Ready"
+    //Stocke et Lit requête client quand "Ready"
     void onReadyRead();
 
     //Si état socket change
@@ -84,8 +84,6 @@ private:
 
     //définit l'index max
     int m_indexArchiveMax = 0;
-
-    int m_index = 0;
 
     //Définit l'index où placer le message dans le labelTxt
 
