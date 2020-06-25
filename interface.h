@@ -64,8 +64,7 @@ public slots:
     void displayArchive();
 
     //récupère l'index courant
-    int getIndexArchiveLux(){return m_indexArchiveLux;}
-    int getIndexArchiveSound(){return m_indexArchiveSound;}
+    int getIndexArchiveLux(){return m_indexArchive;}
 
 
 
@@ -87,8 +86,7 @@ private:
 
     //définit l'index
 
-    int m_indexArchiveLux = 0;
-    int m_indexArchiveSound = 0;
+    int m_indexArchive = 0;
 
     QTcpServer *server =  nullptr;
     QTcpSocket *socket = nullptr;
@@ -96,6 +94,8 @@ private:
     Serial lecture;
     int m_pageId;
     QList<QObject*> m_labelList;
+    QList<QObject*> m_detectionList;
+
 };
 
 #endif // Interface_H
