@@ -64,8 +64,7 @@ public slots:
     void displayArchive();
 
     //récupère l'index courant
-    int getIndexArchiveLux(){return m_indexArchiveLux;}
-    int getIndexArchiveSound(){return m_indexArchiveLux;}
+    int getIndexArchiveSound(){return m_indexArchive;}
 
 
     //enregistre un nouvel objet chaque Component.onCompleted
@@ -85,8 +84,7 @@ private:
     bool m_flag = false;
 
     //définit l'index
-    int m_indexArchiveLux = 0;
-    int m_indexArchiveSound = 0;
+    int m_indexArchive = 0;
 
     QTcpServer *server =  nullptr;
     QTcpSocket *socket = nullptr;

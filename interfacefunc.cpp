@@ -108,34 +108,34 @@ void Interface::writeSensorLux(QByteArray message){
 void Interface::addLuxDetection(){
 
     qDebug() << Q_FUNC_INFO << "add lux detection";
-    QString msg = "Détection du capteur de lumière le :" + getDate();
+    QString msg = "\n Détection du capteur de lumière le :" + getDate();
 
-    if (m_indexArchiveLux < 30){
+    if (m_indexArchive < 30){
         if (m_flag == true) {
 
-            m_labelList.at(m_indexArchiveLux)->setProperty("text", msg);
-            qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(m_indexArchiveLux) ;
+            m_labelList.at(m_indexArchive)->setProperty("text", msg);
+            qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(m_indexArchive) ;
 
-            m_indexArchiveLux = m_indexArchiveLux + 1;
+            m_indexArchive = m_indexArchive + 1;
         }
     }
-    else if (m_indexArchiveLux >= 30){
+    else if (m_indexArchive >= 30){
         qDebug() <<  " m_index superieur a 30";
     }
 
 }
 void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
-    QString msg = "Détection du capteur ultrason le :" + getDate();
+    QString msg = "\n Détection du capteur ultrason le :" + getDate();
 
-    if (m_indexArchiveSound < 30){
+    if (m_indexArchive < 30){
         if (m_flag == true){
-            m_labelList.at(m_indexArchiveSound)->setProperty("text", msg);
+            m_labelList.at(m_indexArchive)->setProperty("text", msg);
         }
-        m_indexArchiveSound = m_indexArchiveSound + 1;
+        m_indexArchive = m_indexArchive + 1;
     }
 
-    else if (m_indexArchiveSound >= 30){
+    else if (m_indexArchive >= 30){
         qDebug() <<  " m_index superieur a 30";
     }
 
@@ -252,8 +252,8 @@ void Interface::displayArchive(){
 void Interface::registerLabel(QObject *obj)
 {
     m_labelList.append(obj);
-    m_indexArchiveLux = 0;
-    m_indexArchiveSound = 0;
+    m_indexArchive = 0;
+    m_indexArchive = 0;
     obj->setProperty("text", "initialized!!");
     qDebug()<< "register label";
     addLuxDetection();
