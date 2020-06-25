@@ -40,7 +40,7 @@ Page {
             Component.onCompleted: {
                 console.log("labelTxt")
                 //cpp.registerLabel("labelTxt")
-               /cpp.registerLabel(page)
+               cpp.registerLabel(this)
 
             }
         }
