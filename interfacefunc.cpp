@@ -108,7 +108,7 @@ void Interface::writeSensorLux(QByteArray message){
 void Interface::addLuxDetection(){
 
     qDebug() << Q_FUNC_INFO ;
-
+    m_flag = false;
 //    if (m_flag == true){
     QString msg = "Détection du capteur de lumière le :" + getDate();
     m_labelList.at(m_indexArchive)->setProperty("text", msg);
