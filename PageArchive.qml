@@ -5,6 +5,7 @@ import QtQuick.Extras 1.4
 
 Page {
     id : page
+    property alias grid: grid
 
 
 
@@ -16,7 +17,45 @@ Page {
         padding: 10
     }
 
-/*
+    GridLayout {
+
+        id: grid
+        objectName: "gridLabel"
+        anchors.fill: parent
+        rows: 10
+        columns: 2
+
+        Label {
+            objectName: "labelTxt"
+        property var varSensor: "lorem ipsum "
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            text: varSensor
+            onVarSensorChanged: {
+                //qDebug() << "onVarChanged \n";
+
+            if (cpp.getIndexArchive() === true){
+
+                if (cpp.getState() === 1 ){
+                    grid.text = cpp.addLuxDetection()
+                    //page.header.text = cpp.addLuxDetection()
+                }
+                else if (cpp.getState() === 2){
+                    cpp.addSoundDetection()
+                }
+                else if (cpp.getState() === 3){
+                    cpp.addLuxDetection();
+                    cpp.addSoundDetection();
+                }
+            }
+        }
+            Component.onCompleted: {
+                console.log("grid")
+            cpp.registerGrid(grid)
+            }
+    }
+    }
+        /*
     Label {
 
         objectName: "labelArchive"

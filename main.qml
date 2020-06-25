@@ -10,7 +10,8 @@ Rectangle {
     width: 640
     height: 480
     color: "#cfcece"
-
+    //property alias pageArch: pageArch
+    //Component.onCompleted: console.log(pageArch.grid.varSensor);
 
     Rectangle {                                                          //Un item est nécessaire plus qu'un une Window
         id: window
@@ -93,36 +94,11 @@ Rectangle {
                 model: 30
 
                 PageArchive {
+
                     objectName: "pageArch"
                     id : pageArch
                     // anchors.fill: repeat
-                    GridLayout {
 
-                        id: grid
-                        objectName: "gridLabel"
-                        anchors.fill: parent
-                        rows: 10
-                        columns: 2
-                        property var varSensor: "lorem ipsum "
-                        onVarSensorChanged: {
-
-                            if (cpp.getIndexArchive() === true){
-
-                                if (cpp.getState() === 1 ){
-                                    grid.text = cpp.addLuxDetection()
-                                    //page.header.text = cpp.addLuxDetection()
-                                }
-                                else if (cpp.getState() === 2){
-                                    cpp.addSoundDetection()
-                                }
-                                else if (cpp.getState() === 3){
-                                    cpp.addLuxDetection();
-                                    cpp.addSoundDetection();
-                                }
-                            }
-                        }
-
-                    }
                 }
 
             }
@@ -169,12 +145,12 @@ Rectangle {
                 }
             }
 
-            Connections {
-                    target: nextButt
-                    onClicked: {
-                        pageArch.header.text = qsTr (cpp.getDate(cpp.getDate()))
-                    }
-                }
+//            Connections {
+//                    target: nextButt
+//                    onClicked: {
+//                        pageArch.header.text = qsTr (cpp.getDate(cpp.getDate()))
+//                    }
+//                }
         }
     }
 

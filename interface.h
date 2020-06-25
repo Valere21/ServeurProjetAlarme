@@ -49,11 +49,11 @@ public slots:
     void socketDisconnected();
     void displayArchive();
     int getIndexArchive(){return m_indexArchive;}
+    void registerGrid(QObject *obj);
 
 private slots:
     void    viewChanger(int id);
     void    loadMain();
-
 
 
 private:
@@ -65,6 +65,7 @@ private:
     QList <QTcpSocket*> listSocket;
     Serial lecture;
     int m_pageId;
+    QList<QObject*> m_gridList;
 };
 
 #endif // Interface_H

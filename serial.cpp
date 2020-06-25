@@ -8,7 +8,9 @@ Serial::Serial()
 void Serial::init(){
     // /dev/ttyAMA0 ou /dev/ttyS0
 
-
+#ifdef Q_OS_WIN
+    return;
+#endif
     m_listPort = QSerialPortInfo::availablePorts();
     qDebug() << "ListSize: " << m_listPort.size();
     m_pinRX = new QSerialPort(m_listPort.at(1));
@@ -47,7 +49,7 @@ void Serial::onReadyRead(){
     checkMsg();
 
 
-    qDebug() << m_msgAll << "message nucleo";
+    qDebug() << m_msgAll << "message nucleo" << '\n';
 
     emit sendSensorState(m_msgAll);
 

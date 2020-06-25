@@ -139,7 +139,7 @@ void Interface::getSensorState(QByteArray msg)
     }
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
-    QObject* labelArchive = rootItem->findChild<QObject*>("varSensor");
+    QObject* labelArchive = rootItem->findChild<QObject*>("labelTxt");
 
     if (lightLux  == nullptr){
         qDebug() << "lightLuxItem not found";
@@ -150,10 +150,9 @@ void Interface::getSensorState(QByteArray msg)
         return ;
     }
     if (labelArchive == nullptr){
-        qDebug() << "varSensor not found";
+        qDebug() << "gridLayout not found";
         return ;
     }
-    qDebug() << "labelArchive Found !";
     labelArchive->setProperty("text", "val Change");
 
 
@@ -229,6 +228,13 @@ void Interface::displayArchive(){
     archiveButton->setProperty("opacity", opacity);
     opacity = !opacity;
 
+}
+
+void Interface::registerGrid(QObject *obj)
+{
+    m_gridList.append(obj);
+    obj->setProperty("text", "initialized!!");
+    qDebug()<< "register grid";
 }
 
 
