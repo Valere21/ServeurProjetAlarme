@@ -107,19 +107,22 @@ void Interface::writeSensorLux(QByteArray message){
 
 void Interface::addLuxDetection(){
 
-    QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArc = rootItem->findChild<QObject*>("gridLabel");
+//    if (m_flag == true){
     QString msg = "Détection du capteur de lumière le :" + getDate();
+    m_labelList.at(m_indexArchive)->setProperty("text", msg);
+    m_indexArchive = m_indexArchive + 1;
 
-    labelArc->setProperty("text", msg);
+    //QObject* rootItem = (QObject*)rootObject();
+    //QObject* labelArc = rootItem->findChild<QObject*>("labelTxt");
+    //  labelArc->setProperty("text", msg);
+  //  }
 }
 void Interface::addSoundDetection(){
 
-    QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArc = rootItem->findChild<QObject*>("gridLabel");
     QString msg = "Détection du capteur à ultrason le :" + getDate();
-
-    labelArc->setProperty("text", msg);
+   // QObject* rootItem = (QObject*)rootObject();
+   // QObject* labelArc = rootItem->findChild<QObject*>("labelTxt");
+   //  labelArc->setProperty("text", msg);
 }
 
 
@@ -139,7 +142,7 @@ void Interface::getSensorState(QByteArray msg)
     }
     QObject* lightLux = rootItem->findChild<QObject*>("luxIndicator");
     QObject* lightSound = rootItem->findChild<QObject*>("soundIndicator");
-    QObject* labelArchive = rootItem->findChild<QObject*>("labelTxt");
+    //QObject* labelArchive = rootItem->findChild<QObject*>("labelTxt");
 
     if (lightLux  == nullptr){
         qDebug() << "lightLuxItem not found";
@@ -149,12 +152,12 @@ void Interface::getSensorState(QByteArray msg)
         qDebug() << "lightSoundItem not found";
         return ;
     }
-    if (labelArchive == nullptr){
+/*    if (labelArchive == nullptr){
         qDebug() << "gridLayout not found";
         return ;
     }
     labelArchive->setProperty("text", "val Change");
-
+*/
 
 
     if (msg == "0"){

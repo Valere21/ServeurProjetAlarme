@@ -28,36 +28,23 @@ Page {
         Label {
             id: label
             objectName: "labelTxt"
-        property var varSensor: "lorem ipsum "
+            property var varSensor: "lorem ipsum "
             Layout.fillHeight: true
             Layout.fillWidth: true
             text: varSensor
             onVarSensorChanged: {
 
-                console.log("signal onVarSensorChanged")
+                cpp.addLuxDetection()
 
-            if (cpp.getIndexArchive() === true){
-
-                if (cpp.getState() === 1 ){
-                    grid.text = cpp.addLuxDetection()
-                    //page.header.text = cpp.addLuxDetection()
-                }
-                else if (cpp.getState() === 2){
-                    cpp.addSoundDetection()
-                }
-                else if (cpp.getState() === 3){
-                    cpp.addLuxDetection();
-                    cpp.addSoundDetection();
-                }
             }
-        }
             Component.onCompleted: {
                 console.log("labelTxt")
-            cpp.registerLabel(label)
+                cpp.registerLabel(label)
             }
+        }
     }
-    }
-        /*
+
+    /*
     Label {
 
         objectName: "labelArchive"
@@ -71,7 +58,6 @@ Page {
         color: "#0000ff"
         text: "page n° " + index
     }
-
 }
 
 /*##^##
