@@ -113,8 +113,8 @@ void Interface::addLuxDetection(){
     if (m_indexArchive != m_labelList.size()){
         if (m_flag == true){
             m_labelList.at(m_indexArchive)->setProperty("text", msg);
-            m_indexArchive = m_indexArchive + 1;
         }
+        m_indexArchive = m_indexArchive + 1;
     }
 
 }
