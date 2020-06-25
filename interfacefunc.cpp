@@ -108,7 +108,7 @@ void Interface::writeSensorLux(QByteArray message){
 void Interface::addLuxDetection(){
 
     QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArc = rootItem->findChild<QObject*>("labelArchive");
+    QObject* labelArc = rootItem->findChild<QObject*>("gridLabel");
     QString msg = "Détection du capteur de lumière le :" + getDate();
 
     labelArc->setProperty("text", msg);
@@ -116,7 +116,7 @@ void Interface::addLuxDetection(){
 void Interface::addSoundDetection(){
 
     QObject* rootItem = (QObject*)rootObject();
-    QObject* labelArc = rootItem->findChild<QObject*>("labelArchive");
+    QObject* labelArc = rootItem->findChild<QObject*>("gridLabel");
     QString msg = "Détection du capteur à ultrason le :" + getDate();
 
     labelArc->setProperty("text", msg);

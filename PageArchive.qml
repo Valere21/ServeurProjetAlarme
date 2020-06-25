@@ -45,7 +45,7 @@ Page {
     }
     Label {
 
-        //objectName: "labelArchive"
+        objectName: "labelArchive"
         text: " ..."
         Layout.fillHeight: false
         clip: false
