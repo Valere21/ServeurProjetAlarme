@@ -87,7 +87,7 @@ private:
     //définit l'index
 
     int m_indexArchive = 0;
-
+    int m_nbrDetec = 0 ;
     QTcpServer *server =  nullptr;
     QTcpSocket *socket = nullptr;
     QList <QTcpSocket*> listSocket;

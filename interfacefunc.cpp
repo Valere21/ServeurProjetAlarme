@@ -114,17 +114,17 @@ void Interface::addLuxDetection(){
         if (m_flag == true) {
             m_flag = false;
 
-            //m_labelList.at(1)->setProperty("text", msg);
-            //m_detectionList.append(m_labelList.at(m_indexArchive));
 
-                //m_labelList.at(m_indexArchive)->setProperty("text", msg);
                 result = m_labelList.at(0)->property("text").toString();
                 result.append(msg);
-                m_labelList.at(0)->setProperty("text", result);
+                m_labelList.at(m_indexArchive)->setProperty("text", result);
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
-                //m_indexArchive =   m_indexArchive + 1;
-
+                m_nbrDetec++;
+                if (m_nbrDetec == 10){
+                    m_indexArchive++;
+                    m_nbrDetec = 0;
+                }
         }
     }
     else if (  m_indexArchive >= 30){
@@ -145,13 +145,16 @@ void Interface::addSoundDetection(){
             //m_detectionList.append(m_labelList.at(m_indexArchive));
 
                 //m_labelList.at(m_indexArchive)->setProperty("text", msg);
-                result = m_labelList.at(0)->property("text").toString();
+                result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(0)->setProperty("text", result);
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
-                //m_indexArchive =   m_indexArchive + 1;
-
+                m_nbrDetec++;
+                if (m_nbrDetec == 10){
+                    m_indexArchive++;
+                    m_nbrDetec = 0;
+                }
         }
     }
 
@@ -221,10 +224,11 @@ void Interface::getSensorState(QByteArray msg)
     }
     if (msg == "3"){
 
+        m_flag = true;
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
-        // luxLabel->setProperty("text", "détection le" );
-        // soundLabel->setProperty("text", "détection le" );
+        addLuxDetection();
+        addSoundDetection();
 
     }
 }
@@ -271,7 +275,7 @@ void Interface::registerLabel(QObject *obj)
 {
     m_labelList.append(obj);
     m_indexArchive = 0;
-    obj->setProperty("text", "initialized!!");
+    obj->setProperty("text", " ");
     qDebug()<< "register label";
     //addLuxDetection();
     //addSoundDetection();

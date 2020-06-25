@@ -11,7 +11,7 @@ Page {
 
     header: Label {
         objectName: "headText"
-        text: qsTr("Archive du :" + cpp.getDate(cpp.getDate))
+        text: qsTr("Début d'archive le :" + cpp.getDate(cpp.getDate))
         color : "#0000ff"
         font.pointSize: 13
         padding: 10
