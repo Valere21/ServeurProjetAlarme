@@ -16,33 +16,7 @@ Page {
         padding: 10
     }
 
-    GridLayout {
 
-        id: grid
-        objectName: "gridLabel"
-        anchors.fill: parent
-        rows: 10
-        columns: 2        
-        property var varSensor: "lorem ipsum "
-        onVarSensorChanged: {
-
-            if (cpp.getIndexArchive() === true){
-
-                if (cpp.getState() === 1 ){
-                    grid.text = cpp.addLuxDetection()
-                    //page.header.text = cpp.addLuxDetection()
-                }
-                else if (cpp.getState() === 2){
-                    cpp.addSoundDetection()
-                }
-                else if (cpp.getState() === 3){
-                    cpp.addLuxDetection();
-                    cpp.addSoundDetection();
-                }
-            }
-        }
-
-    }
     Label {
 
         objectName: "labelArchive"
