@@ -107,6 +107,8 @@ void Interface::writeSensorLux(QByteArray message){
 
 void Interface::addLuxDetection(){
 
+    qDebug() << Q_FUNC_INFO ;
+
 //    if (m_flag == true){
     QString msg = "Détection du capteur de lumière le :" + getDate();
     m_labelList.at(m_indexArchive)->setProperty("text", msg);
@@ -119,7 +121,7 @@ void Interface::addLuxDetection(){
 }
 void Interface::addSoundDetection(){
 
-
+    qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur à ultrason le :" + getDate();
    // QObject* rootItem = (QObject*)rootObject();
    // QObject* labelArc = rootItem->findChild<QObject*>("labelTxt");
