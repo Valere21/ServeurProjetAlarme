@@ -125,11 +125,14 @@ void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur ultrason le :" + getDate();
 
-    if (m_indexArchive != m_labelList.size()){
+    if (m_indexArchive != 30){
         if (m_flag == true){
             m_labelList.at(m_indexArchive)->setProperty("text", msg);
         }
         m_indexArchive = m_indexArchive + 1;
+    }
+    else if (m_indexArchive >= 30){
+     qDebug() <<  " m_index superieur a 30";
     }
 
 }
@@ -248,7 +251,9 @@ void Interface::registerLabel(QObject *obj)
     m_indexArchive = 0;
     obj->setProperty("text", "initialized!!");
     qDebug()<< "register label";
-    //addLuxDetection();
+    addLuxDetection();
+    addSoundDetection();
+
 }
 
 
