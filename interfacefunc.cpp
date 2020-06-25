@@ -111,6 +111,9 @@ void Interface::addLuxDetection(){
     m_flag = false;
 //    if (m_flag == true){
     QString msg = "Détection du capteur de lumière le :" + getDate();
+    if (m_labelList.size() == 29){
+        return ;
+    }
     m_labelList.at(m_indexArchive)->setProperty("text", msg);
     m_indexArchive = m_indexArchive + 1;
 
