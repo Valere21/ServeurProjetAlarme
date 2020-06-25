@@ -110,29 +110,32 @@ void Interface::addLuxDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur de lumière le :" + getDate();
 
+    if (m_index == m_indexArchiveMax){
+        qDebug() << "index max";
+        m_index = 0;
+    }
+
     if (m_index != m_indexArchiveMax){
         if (m_flag == true){
             m_labelList.at(m_index)->setProperty("text", msg);
         }
-        m_index = m_indexArchiveMax + 1;
+        m_index = m_index + 1;
     }
-    else if (m_index > m_indexArchiveMax ){
-     qDebug() <<  " m_index superieur a 30";
-    }
-
 }
 void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur ultrason le :" + getDate();
 
+    if (m_index == m_indexArchiveMax){
+        qDebug() << "index max";
+        m_index = 0;
+    }
+
     if (m_index != m_indexArchiveMax){
         if (m_flag == true){
             m_labelList.at(m_index)->setProperty("text", msg);
         }
-        m_index = m_indexArchiveMax + 1;
-    }
-    else if (m_index > m_indexArchiveMax ){
-     qDebug() <<  " m_index superieur a 30";
+        m_index = m_index + 1;
     }
 
 }
@@ -247,6 +250,7 @@ void Interface::displayArchive(){
 void Interface::registerLabel(QObject *obj)
 {
     m_labelList.append(obj);
+    //m_index = m_labelList.at(0);
     m_indexArchiveMax = m_labelList.count();
     obj->setProperty("text", "initialized!!");
     qDebug()<< "register label";
