@@ -109,19 +109,22 @@ void Interface::addLuxDetection(){
 
     qDebug() << Q_FUNC_INFO << "add lux detection";
     QString msg = "\n Détection du capteur de lumière le :" + getDate();
-
+    QString result;
     if (m_indexArchive < 30){
         if (m_flag == true) {
             m_flag = false;
 
             //m_labelList.at(1)->setProperty("text", msg);
-            m_detectionList.append(m_labelList.at(m_indexArchive));
-            for (int i = 0; i < m_detectionList.count(); i++){
+            //m_detectionList.append(m_labelList.at(m_indexArchive));
+
                 //m_labelList.at(m_indexArchive)->setProperty("text", msg);
-                m_labelList.at(0)->setProperty("text", msg);
+                result = m_labelList.at(0)->property("text").toString();
+                result.append(msg);
+                m_labelList.at(0)->setProperty("text", result);
+
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
-                m_indexArchive =   m_indexArchive + 1;
-            }
+                //m_indexArchive =   m_indexArchive + 1;
+
         }
     }
     else if (  m_indexArchive >= 30){
@@ -132,20 +135,23 @@ void Interface::addLuxDetection(){
 void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "\n Détection du capteur ultrason le :" + getDate();
+    QString result;
 
     if (m_indexArchive < 30){
         if (m_flag == true) {
             m_flag = false;
 
             //m_labelList.at(1)->setProperty("text", msg);
-            m_detectionList.append(m_labelList.at(m_indexArchive));
-            for (int i = 0; i < m_detectionList.count(); i++){
-                //m_labelList.at(m_indexArchive)->setProperty("text", msg);
-                m_labelList.at(0)->setProperty("text", msg);
+            //m_detectionList.append(m_labelList.at(m_indexArchive));
 
-                m_indexArchive =   m_indexArchive + 1;
+                //m_labelList.at(m_indexArchive)->setProperty("text", msg);
+                result = m_labelList.at(0)->property("text").toString();
+                result.append(msg);
+                m_labelList.at(0)->setProperty("text", result);
+
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
-            }
+                //m_indexArchive =   m_indexArchive + 1;
+
         }
     }
 
