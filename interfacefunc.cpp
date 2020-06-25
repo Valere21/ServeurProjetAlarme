@@ -135,14 +135,10 @@ void Interface::addSoundDetection(){
 }
 
 
-QString Interface::getState(){
 
-    return m_valSensor;
-}
 
 void Interface::getSensorState(QByteArray msg)
 {   
-    m_valSensor = msg;
     QObject* rootItem = (QObject*)rootObject();
 
     if (rootItem == nullptr){
