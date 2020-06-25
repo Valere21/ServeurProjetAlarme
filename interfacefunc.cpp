@@ -154,7 +154,7 @@ void Interface::addSoundDetection(){
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
-                if (m_nbrDetec == 10){
+                if (m_nbrDetec >= 10){
                     m_indexArchive++;
                     m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_nbrDetec = 0;
@@ -176,7 +176,7 @@ void Interface::addSoundDetection(){
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
-                if (m_nbrDetec == 10){
+                if (m_nbrDetec >= 10){
                     m_indexArchive++;
                     m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_nbrDetec = 0;
@@ -250,6 +250,7 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
         addLuxDetection();
+        m_flag = true;
         addSoundDetection();
 
     }
