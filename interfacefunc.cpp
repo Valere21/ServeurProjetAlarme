@@ -148,7 +148,7 @@ void Interface::addSoundDetection(){
             m_flag = false;
 
 
-                result = m_labelList.at(0)->property("text").toString();
+                result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(m_indexArchive)->setProperty("text", result);
 
@@ -170,7 +170,7 @@ void Interface::addSoundDetection(){
             m_flag = false;
 
 
-                result = m_labelList.at(0)->property("text").toString();
+                result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(m_indexArchive)->setProperty("text", result);
 
