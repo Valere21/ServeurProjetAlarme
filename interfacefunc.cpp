@@ -154,7 +154,7 @@ void Interface::getSensorState(QByteArray msg)
         return ;
     }
     qDebug() << "labelArhive Found !";
-    labelArchive->setProperty("varSensor", "val Change");
+    labelArchive->setProperty("text", "val Change");
 
 
 
