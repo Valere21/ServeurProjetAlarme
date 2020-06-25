@@ -34,12 +34,14 @@ Page {
             text: varSensor
             onVarSensorChanged: {
 
-                cpp.addLuxDetection()
+               // cpp.addLuxDetection()
 
             }
             Component.onCompleted: {
                 console.log("labelTxt")
-                cpp.registerLabel(label)
+                //cpp.registerLabel("labelTxt")
+               /cpp.registerLabel(page)
+
             }
         }
     }

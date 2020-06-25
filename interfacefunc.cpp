@@ -167,6 +167,8 @@ void Interface::getSensorState(QByteArray msg)
         m_flag = true;
         lightLux->setProperty ("active", "false");
         lightSound->setProperty ("active", "false");
+        addLuxDetection();
+
     }
 
     if (msg == "1" ){                     //test capteur lumière
@@ -243,6 +245,7 @@ void Interface::registerLabel(QObject *obj)
     m_labelList.append(obj);
     obj->setProperty("text", "initialized!!");
     qDebug()<< "register label";
+    //addLuxDetection();
 }
 
 
