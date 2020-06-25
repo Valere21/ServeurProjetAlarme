@@ -118,6 +118,7 @@ void Interface::addLuxDetection(){
             m_detectionList.append(m_labelList.at(m_indexArchive));
             for (int i = 0; i < m_detectionList.count(); i++){
                 //m_labelList.at(m_indexArchive)->setProperty("text", msg);
+                m_labelList.at(0)->setProperty("text", msg);
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
             }
             m_indexArchive =   m_indexArchive + 1;
@@ -140,6 +141,8 @@ void Interface::addSoundDetection(){
             m_detectionList.append(m_labelList.at(m_indexArchive));
             for (int i = 0; i < m_detectionList.count(); i++){
                 //m_labelList.at(m_indexArchive)->setProperty("text", msg);
+                m_labelList.at(0)->setProperty("text", msg);
+
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
             }
             m_indexArchive =   m_indexArchive + 1;
