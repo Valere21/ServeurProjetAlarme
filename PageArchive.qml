@@ -41,15 +41,15 @@ Page {
             }
         }
 
-        Label {
+    }
+    Label {
 
-            objectName: "labelArchive"
-            //text: "varSensor"
-            Layout.fillHeight: false
-            clip: false
-            Layout.fillWidth: true
+        //objectName: "labelArchive"
+        text: " ..."
+        Layout.fillHeight: false
+        clip: false
+        Layout.fillWidth: true
 
-        }
     }
     footer: Label {
         color: "#0000ff"
