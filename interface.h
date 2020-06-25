@@ -27,9 +27,16 @@ public:
 
 public slots:
 
+    //Récupère la date
     QString getDate();
+
+    //Récupère la valeur lu sur le port Serie. Allume ou éteint les voyants rouge en temps réelle
     QString getState();
+
+    //Vérifie que la dernière valeur lu sur le port série est égale à 0.
     bool getFlag(){return m_flag;}
+
+    //Affiche dans l'item qml "
     void addLuxDetection();
     void addSoundDetection();
     void getSensorState(QByteArray msg);

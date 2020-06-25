@@ -17,11 +17,29 @@ Page {
     }
 
     GridLayout {
+
         id: grid
         objectName: "gridLabel"
         anchors.fill: parent
         rows: 10
         columns: 2
+
+        property var varSensor: "lorem ipsum "
+        onVarSensorChanged: {
+            if (cpp.getIndexArchive() === true){
+
+                if (cpp.getState() === 1 ){
+                    cpp.addLuxDetection()
+                }
+                else if (cpp.getState() === 2){
+                    cpp.addSoundDetection()
+                }
+                else if (cpp.getState() === 3){
+                    cpp.addLuxDetection();
+                    cpp.addSoundDetection();
+                }
+            }
+        }
 
         Label {
 
@@ -38,22 +56,6 @@ Page {
         text: "page n° " + index
     }
 
-    property var varSensor: "lorem ipsum "
-    onVarSensorChanged: {
-        if (cpp.getIndexArchive() === true){
-
-            if (cpp.getState() === 1 ){
-                cpp.addLuxDetection()
-            }
-            else if (cpp.getState() === 2){
-                cpp.addSoundDetection()
-            }
-            else if (cpp.getState() === 3){
-                cpp.addLuxDetection();
-                cpp.addSoundDetection();
-            }
-        }
-    }
 }
 
 /*##^##
