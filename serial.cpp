@@ -58,7 +58,7 @@ void Serial::onReadyRead(){
 void Serial::checkMsg(){
 
 
-    qDebug() << Q_FUNC_INFO << "taille du QByteArray de lecture :"  << m_msg.count();
+    qDebug() << Q_FUNC_INFO << "Nombre d'élément dans le QByteArray de lecture :"  << m_msg.count();
     int i = 0;
 
     while (i < m_msg.count()){

@@ -33,7 +33,8 @@ Page {
             Layout.fillWidth: true
             text: varSensor
             onVarSensorChanged: {
-                //qDebug() << "onVarChanged \n";
+
+                console.log("signal onVarSensorChanged")
 
             if (cpp.getIndexArchive() === true){
 
