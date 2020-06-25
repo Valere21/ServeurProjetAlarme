@@ -111,13 +111,14 @@ void Interface::addLuxDetection(){
     QString msg = "Détection du capteur de lumière le :" + getDate();
 
     if (m_indexArchive != 30){
-      //  if (m_flag == true){
+        if (m_flag == true){
 
             m_labelList.at(m_indexArchive)->setProperty("text", msg);
             qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(m_indexArchive) ;
 
-        m_indexArchive = m_indexArchive + 1;
-}
+            m_indexArchive = m_indexArchive + 1;
+        }
+    }
     /*else if (m_indexArchive >= 30){
      qDebug() <<  " m_index superieur a 30";
     }*/
@@ -127,11 +128,11 @@ void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "Détection du capteur ultrason le :" + getDate();
 
-   // if (m_indexArchive != 30){
-        if (m_flag == true){
-            m_labelList.at(m_indexArchive)->setProperty("text", msg);
-        }
-        m_indexArchive = m_indexArchive + 1;
+    // if (m_indexArchive != 30){
+    if (m_flag == true){
+        m_labelList.at(m_indexArchive)->setProperty("text", msg);
+    }
+    m_indexArchive = m_indexArchive + 1;
 
     /*else if (m_indexArchive >= 30){
      qDebug() <<  " m_index superieur a 30";
