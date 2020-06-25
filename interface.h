@@ -64,7 +64,9 @@ public slots:
     void displayArchive();
 
     //récupère l'index courant
-    int getIndexArchive(){return m_indexArchive;}
+    int getIndexArchiveLux(){return m_indexArchiveLux;}
+    int getIndexArchiveSound(){return m_indexArchiveLux;}
+
 
     //enregistre un nouvel objet chaque Component.onCompleted
     void registerLabel(QObject *obj);
@@ -83,7 +85,9 @@ private:
     bool m_flag = false;
 
     //définit l'index
-    int m_indexArchive = 0;
+    int m_indexArchiveLux = 0;
+    int m_indexArchiveSound = 0;
+
     QTcpServer *server =  nullptr;
     QTcpSocket *socket = nullptr;
     QList <QTcpSocket*> listSocket;
