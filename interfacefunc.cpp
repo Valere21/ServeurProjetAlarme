@@ -138,6 +138,35 @@ void Interface::addLuxDetection(){
     }
 
 }
+
+void Interface::addBothDetection(){
+
+    qDebug() << Q_FUNC_INFO ;
+    QString msg = "\n Détection des 2 capteurs le :" + getDate();
+    QString result;
+
+    if (m_indexArchive < 30){
+        if (m_flag == true) {
+            m_flag = false;
+
+
+                result = m_labelList.at(m_indexArchive)->property("text").toString();
+                result.append(msg);
+                m_labelList.at(m_indexArchive)->setProperty("text", result);
+
+                qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
+                m_nbrDetec++;
+                if (m_nbrDetec >= 10){
+                    m_indexArchive++;
+                    m_swipe->setProperty("currentIndex", m_indexArchive );
+                    m_nbrDetec = 0;
+                    m_labelList.at(m_indexArchive)->setProperty("text", "" );
+                }
+        }
+    }
+
+}
+
 void Interface::addSoundDetection(){
     qDebug() << Q_FUNC_INFO ;
     QString msg = "\n Détection du capteur ultrason le :" + getDate();
@@ -165,24 +194,6 @@ void Interface::addSoundDetection(){
 
     else if (  m_indexArchive >= 30){
         qDebug() <<  " m_index superieur a 30";
-    }
-    if (m_indexArchive < 30){
-        if (m_flag == true) {
-            m_flag = false;
-
-                result = m_labelList.at(m_indexArchive)->property("text").toString();
-                result.append(msg);
-                m_labelList.at(m_indexArchive)->setProperty("text", result);
-
-                qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
-                m_nbrDetec++;
-                if (m_nbrDetec >= 10){
-                    m_indexArchive++;
-                    m_swipe->setProperty("currentIndex", m_indexArchive );
-                    m_nbrDetec = 0;
-                    m_labelList.at(m_indexArchive)->setProperty("text", "" );
-                }
-        }
     }
 }
 
@@ -249,10 +260,7 @@ void Interface::getSensorState(QByteArray msg)
         m_flag = true;
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "true");
-        addLuxDetection();
-        m_flag = true;
-        addSoundDetection();
-
+        addBothDetection();
     }
 }
 

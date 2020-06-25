@@ -42,6 +42,8 @@ public slots:
     //Archive dans le qml détection
     void addSoundDetection();
 
+    void addBothDetection();
+
     //récupère lecture com UART
     void getSensorState(QByteArray msg);
 
