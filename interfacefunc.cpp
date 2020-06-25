@@ -121,6 +121,7 @@ void Interface::addLuxDetection(){
                 result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(m_indexArchive)->setProperty("text", result);
+                m_swipe->setProperty("ScrollBar.position", 1);
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
@@ -150,6 +151,7 @@ void Interface::addBothDetection(){
                 result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(m_indexArchive)->setProperty("text", result);
+                m_swipe->setProperty("ScrollBar.position", 1);
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
@@ -174,6 +176,7 @@ void Interface::addSoundDetection(){
                 result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(m_indexArchive)->setProperty("text", result);
+                m_swipe->setProperty("ScrollBar.position", 1);
 
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
