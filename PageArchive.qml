@@ -16,7 +16,7 @@ Page {
         padding: 10
     }
 
-
+/*
     Label {
 
         objectName: "labelArchive"
@@ -25,7 +25,7 @@ Page {
         clip: false
         Layout.fillWidth: true
 
-    }
+    }*/
     footer: Label {
         color: "#0000ff"
         text: "page n° " + index
