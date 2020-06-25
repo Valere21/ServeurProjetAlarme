@@ -50,7 +50,7 @@ public slots:
     //Récupère les nouvelles connections TCP
     void onNewConnection();
 
-    //Stocke et Lit requête client quand "Ready"
+    //Lit requête client quand "Ready"
     void onReadyRead();
 
     //Si état socket change
@@ -64,7 +64,7 @@ public slots:
     void displayArchive();
 
     //récupère l'index courant
-    int getIndexArchive(){return m_indexArchiveMax;}
+    int getIndexArchive(){return m_indexArchive;}
 
     //enregistre un nouvel objet chaque Component.onCompleted
     void registerLabel(QObject *obj);
@@ -82,27 +82,14 @@ private:
     //vérifie si m_msg vaut 0
     bool m_flag = false;
 
-    //définit l'index max
-    int m_indexArchiveMax = 0;
-
-    //Définit l'index où placer le message dans le labelTxt
-
-    //new Server
+    //définit l'index
+    int m_indexArchive = 0;
     QTcpServer *server =  nullptr;
-
-    //Socket du server
     QTcpSocket *socket = nullptr;
-
-    //Stocke les clients
     QList <QTcpSocket*> listSocket;
-
-    //Classe Serial - init, lit le port serie
     Serial lecture;
-
-    //List qui contient les nouveaux labels
-    QList<QObject*> m_labelList;
-
     int m_pageId;
+    QList<QObject*> m_labelList;
 };
 
 #endif // Interface_H
