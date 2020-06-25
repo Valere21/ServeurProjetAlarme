@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Interface_t {
     QByteArrayData data[26];
-    char stringdata0[331];
+    char stringdata0[332];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,11 +52,11 @@ QT_MOC_LITERAL(17, 211, 28), // "QAbstractSocket::SocketError"
 QT_MOC_LITERAL(18, 240, 18), // "socketDisconnected"
 QT_MOC_LITERAL(19, 259, 14), // "displayArchive"
 QT_MOC_LITERAL(20, 274, 15), // "getIndexArchive"
-QT_MOC_LITERAL(21, 290, 12), // "registerGrid"
-QT_MOC_LITERAL(22, 303, 3), // "obj"
-QT_MOC_LITERAL(23, 307, 11), // "viewChanger"
-QT_MOC_LITERAL(24, 319, 2), // "id"
-QT_MOC_LITERAL(25, 322, 8) // "loadMain"
+QT_MOC_LITERAL(21, 290, 13), // "registerLabel"
+QT_MOC_LITERAL(22, 304, 3), // "obj"
+QT_MOC_LITERAL(23, 308, 11), // "viewChanger"
+QT_MOC_LITERAL(24, 320, 2), // "id"
+QT_MOC_LITERAL(25, 323, 8) // "loadMain"
 
     },
     "Interface\0getDate\0\0getState\0getFlag\0"
@@ -67,7 +67,7 @@ QT_MOC_LITERAL(25, 322, 8) // "loadMain"
     "socketState\0socketError\0"
     "QAbstractSocket::SocketError\0"
     "socketDisconnected\0displayArchive\0"
-    "getIndexArchive\0registerGrid\0obj\0"
+    "getIndexArchive\0registerLabel\0obj\0"
     "viewChanger\0id\0loadMain"
 };
 #undef QT_MOC_LITERAL
@@ -153,7 +153,7 @@ void Interface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 13: _t->displayArchive(); break;
         case 14: { int _r = _t->getIndexArchive();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 15: _t->registerGrid((*reinterpret_cast< QObject*(*)>(_a[1]))); break;
+        case 15: _t->registerLabel((*reinterpret_cast< QObject*(*)>(_a[1]))); break;
         case 16: _t->viewChanger((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 17: _t->loadMain(); break;
         default: ;
