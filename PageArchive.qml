@@ -34,8 +34,8 @@ Page {
             text: varSensor
             onVarSensorChanged: {
 
-               // cpp.addLuxDetection()
-
+                cpp.addLuxDetection()
+                cpp.addSoundDetection()
             }
             Component.onCompleted: {
                 console.log("labelTxt")
