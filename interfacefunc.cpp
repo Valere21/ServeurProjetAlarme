@@ -110,8 +110,8 @@ void Interface::addLuxDetection(){
     qDebug() << Q_FUNC_INFO << "add lux detection";
     QString msg = "Détection du capteur de lumière le :" + getDate();
 
-    if (m_indexArchive != 30){
-        if (m_flag == true){
+    if (m_indexArchive < 30){
+        if (m_flag == true) {
 
             m_labelList.at(m_indexArchive)->setProperty("text", msg);
             qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(m_indexArchive) ;
@@ -180,7 +180,6 @@ void Interface::getSensorState(QByteArray msg)
     }
 
     if (msg == "1" ){                     //test capteur lumière
-        m_flag = false;
 
         qDebug() << "test activation de couleur capteur Lumiere";
 
@@ -188,15 +187,16 @@ void Interface::getSensorState(QByteArray msg)
         lightLux->setProperty ("active", "true");
         lightSound->setProperty ("active", "false");
         addLuxDetection();
+        m_flag = false;
     }
     if (msg == "2"){
-        m_flag = false;
         qDebug() << "test activation de couleur capteur Ultrason";
 
         lightSound->setProperty("color", "c01414");
         lightSound->setProperty ("active", "true");
         lightLux->setProperty ("active", "false");
         addSoundDetection();
+        m_flag = false;
         //soundLabel->setProperty("text", "détection le");
 
     }
