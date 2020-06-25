@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Interface_t {
-    QByteArrayData data[27];
-    char stringdata0[343];
+    QByteArrayData data[28];
+    char stringdata0[360];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,34 +39,35 @@ QT_MOC_LITERAL(4, 28, 7), // "getDate"
 QT_MOC_LITERAL(5, 36, 7), // "getFlag"
 QT_MOC_LITERAL(6, 44, 15), // "addLuxDetection"
 QT_MOC_LITERAL(7, 60, 17), // "addSoundDetection"
-QT_MOC_LITERAL(8, 78, 14), // "getSensorState"
-QT_MOC_LITERAL(9, 93, 3), // "msg"
-QT_MOC_LITERAL(10, 97, 9), // "luxDetect"
-QT_MOC_LITERAL(11, 107, 11), // "soundDetect"
-QT_MOC_LITERAL(12, 119, 15), // "onNewConnection"
-QT_MOC_LITERAL(13, 135, 11), // "onReadyRead"
-QT_MOC_LITERAL(14, 147, 18), // "socketStateChanged"
-QT_MOC_LITERAL(15, 166, 28), // "QAbstractSocket::SocketState"
-QT_MOC_LITERAL(16, 195, 11), // "socketState"
-QT_MOC_LITERAL(17, 207, 11), // "socketError"
-QT_MOC_LITERAL(18, 219, 28), // "QAbstractSocket::SocketError"
-QT_MOC_LITERAL(19, 248, 18), // "socketDisconnected"
-QT_MOC_LITERAL(20, 267, 14), // "displayArchive"
-QT_MOC_LITERAL(21, 282, 18), // "getIndexArchiveLux"
-QT_MOC_LITERAL(22, 301, 13), // "registerLabel"
-QT_MOC_LITERAL(23, 315, 3), // "obj"
-QT_MOC_LITERAL(24, 319, 11), // "viewChanger"
-QT_MOC_LITERAL(25, 331, 2), // "id"
-QT_MOC_LITERAL(26, 334, 8) // "loadMain"
+QT_MOC_LITERAL(8, 78, 16), // "addBothDetection"
+QT_MOC_LITERAL(9, 95, 14), // "getSensorState"
+QT_MOC_LITERAL(10, 110, 3), // "msg"
+QT_MOC_LITERAL(11, 114, 9), // "luxDetect"
+QT_MOC_LITERAL(12, 124, 11), // "soundDetect"
+QT_MOC_LITERAL(13, 136, 15), // "onNewConnection"
+QT_MOC_LITERAL(14, 152, 11), // "onReadyRead"
+QT_MOC_LITERAL(15, 164, 18), // "socketStateChanged"
+QT_MOC_LITERAL(16, 183, 28), // "QAbstractSocket::SocketState"
+QT_MOC_LITERAL(17, 212, 11), // "socketState"
+QT_MOC_LITERAL(18, 224, 11), // "socketError"
+QT_MOC_LITERAL(19, 236, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(20, 265, 18), // "socketDisconnected"
+QT_MOC_LITERAL(21, 284, 14), // "displayArchive"
+QT_MOC_LITERAL(22, 299, 18), // "getIndexArchiveLux"
+QT_MOC_LITERAL(23, 318, 13), // "registerLabel"
+QT_MOC_LITERAL(24, 332, 3), // "obj"
+QT_MOC_LITERAL(25, 336, 11), // "viewChanger"
+QT_MOC_LITERAL(26, 348, 2), // "id"
+QT_MOC_LITERAL(27, 351, 8) // "loadMain"
 
     },
     "Interface\0changeView\0\0swipe\0getDate\0"
     "getFlag\0addLuxDetection\0addSoundDetection\0"
-    "getSensorState\0msg\0luxDetect\0soundDetect\0"
-    "onNewConnection\0onReadyRead\0"
-    "socketStateChanged\0QAbstractSocket::SocketState\0"
-    "socketState\0socketError\0"
-    "QAbstractSocket::SocketError\0"
+    "addBothDetection\0getSensorState\0msg\0"
+    "luxDetect\0soundDetect\0onNewConnection\0"
+    "onReadyRead\0socketStateChanged\0"
+    "QAbstractSocket::SocketState\0socketState\0"
+    "socketError\0QAbstractSocket::SocketError\0"
     "socketDisconnected\0displayArchive\0"
     "getIndexArchiveLux\0registerLabel\0obj\0"
     "viewChanger\0id\0loadMain"
@@ -79,7 +80,7 @@ static const uint qt_meta_data_Interface[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,24 +88,25 @@ static const uint qt_meta_data_Interface[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  104,    2, 0x0a /* Public */,
-       4,    0,  107,    2, 0x0a /* Public */,
-       5,    0,  108,    2, 0x0a /* Public */,
-       6,    0,  109,    2, 0x0a /* Public */,
-       7,    0,  110,    2, 0x0a /* Public */,
-       8,    1,  111,    2, 0x0a /* Public */,
-      10,    0,  114,    2, 0x0a /* Public */,
-      11,    0,  115,    2, 0x0a /* Public */,
-      12,    0,  116,    2, 0x0a /* Public */,
-      13,    0,  117,    2, 0x0a /* Public */,
-      14,    1,  118,    2, 0x0a /* Public */,
-      17,    1,  121,    2, 0x0a /* Public */,
-      19,    0,  124,    2, 0x0a /* Public */,
-      20,    0,  125,    2, 0x0a /* Public */,
-      21,    0,  126,    2, 0x0a /* Public */,
-      22,    1,  127,    2, 0x0a /* Public */,
-      24,    1,  130,    2, 0x08 /* Private */,
-      26,    0,  133,    2, 0x08 /* Private */,
+       1,    1,  109,    2, 0x0a /* Public */,
+       4,    0,  112,    2, 0x0a /* Public */,
+       5,    0,  113,    2, 0x0a /* Public */,
+       6,    0,  114,    2, 0x0a /* Public */,
+       7,    0,  115,    2, 0x0a /* Public */,
+       8,    0,  116,    2, 0x0a /* Public */,
+       9,    1,  117,    2, 0x0a /* Public */,
+      11,    0,  120,    2, 0x0a /* Public */,
+      12,    0,  121,    2, 0x0a /* Public */,
+      13,    0,  122,    2, 0x0a /* Public */,
+      14,    0,  123,    2, 0x0a /* Public */,
+      15,    1,  124,    2, 0x0a /* Public */,
+      18,    1,  127,    2, 0x0a /* Public */,
+      20,    0,  130,    2, 0x0a /* Public */,
+      21,    0,  131,    2, 0x0a /* Public */,
+      22,    0,  132,    2, 0x0a /* Public */,
+      23,    1,  133,    2, 0x0a /* Public */,
+      25,    1,  136,    2, 0x08 /* Private */,
+      27,    0,  139,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QObjectStar,    3,
@@ -112,18 +114,19 @@ static const uint qt_meta_data_Interface[] = {
     QMetaType::Bool,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QByteArray,    9,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QByteArray,   10,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 15,   16,
-    QMetaType::Void, 0x80000000 | 18,   17,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, 0x80000000 | 19,   18,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Int,
-    QMetaType::Void, QMetaType::QObjectStar,   23,
-    QMetaType::Void, QMetaType::Int,   25,
+    QMetaType::Void, QMetaType::QObjectStar,   24,
+    QMetaType::Void, QMetaType::Int,   26,
     QMetaType::Void,
 
        0        // eod
@@ -142,33 +145,34 @@ void Interface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 3: _t->addLuxDetection(); break;
         case 4: _t->addSoundDetection(); break;
-        case 5: _t->getSensorState((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
-        case 6: _t->luxDetect(); break;
-        case 7: _t->soundDetect(); break;
-        case 8: _t->onNewConnection(); break;
-        case 9: _t->onReadyRead(); break;
-        case 10: _t->socketStateChanged((*reinterpret_cast< QAbstractSocket::SocketState(*)>(_a[1]))); break;
-        case 11: _t->socketError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
-        case 12: _t->socketDisconnected(); break;
-        case 13: _t->displayArchive(); break;
-        case 14: { int _r = _t->getIndexArchiveLux();
+        case 5: _t->addBothDetection(); break;
+        case 6: _t->getSensorState((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
+        case 7: _t->luxDetect(); break;
+        case 8: _t->soundDetect(); break;
+        case 9: _t->onNewConnection(); break;
+        case 10: _t->onReadyRead(); break;
+        case 11: _t->socketStateChanged((*reinterpret_cast< QAbstractSocket::SocketState(*)>(_a[1]))); break;
+        case 12: _t->socketError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
+        case 13: _t->socketDisconnected(); break;
+        case 14: _t->displayArchive(); break;
+        case 15: { int _r = _t->getIndexArchiveLux();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 15: _t->registerLabel((*reinterpret_cast< QObject*(*)>(_a[1]))); break;
-        case 16: _t->viewChanger((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 17: _t->loadMain(); break;
+        case 16: _t->registerLabel((*reinterpret_cast< QObject*(*)>(_a[1]))); break;
+        case 17: _t->viewChanger((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 18: _t->loadMain(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 10:
+        case 11:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractSocket::SocketState >(); break;
             }
             break;
-        case 11:
+        case 12:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -208,13 +212,13 @@ int Interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 19;
     }
     return _id;
 }
