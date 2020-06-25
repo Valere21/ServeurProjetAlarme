@@ -105,6 +105,11 @@ void Interface::writeSensorLux(QByteArray message){
     socket->write(message);
 }
 
+void Interface::changeView(QObject* swipe)
+{
+ m_swipe = swipe;
+}
+
 void Interface::addLuxDetection(){
 
     qDebug() << Q_FUNC_INFO << "add lux detection";
@@ -122,6 +127,7 @@ void Interface::addLuxDetection(){
                 qDebug() << Q_FUNC_INFO << " valeur de l'index " << m_labelList.at(  m_indexArchive) ;
                 m_nbrDetec++;
                 if (m_nbrDetec == 10){
+                    m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_indexArchive++;
                     m_nbrDetec = 0;
                 }

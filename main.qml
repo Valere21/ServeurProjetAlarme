@@ -86,6 +86,11 @@ Rectangle {
             anchors.rightMargin: 10
             clip: true
 
+            Component.onCompleted: {
+                console.log(" génere page swipe")
+                cpp.changeView(this)
+            }
+
             Repeater {
 
                 objectName: "repeater"

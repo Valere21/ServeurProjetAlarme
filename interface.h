@@ -27,6 +27,8 @@ public:
 
 public slots:
 
+    void changeView(QObject* swipe);
+
     //Récupère la date
     QString getDate();
 
@@ -95,7 +97,7 @@ private:
     int m_pageId;
     QList<QObject*> m_labelList;
     QList<QObject*> m_detectionList;
-
+    QObject* m_swipe;
 };
 
 #endif // Interface_H
