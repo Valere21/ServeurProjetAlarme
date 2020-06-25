@@ -26,6 +26,7 @@ Page {
         columns: 2
 
         ScrollView {
+            id: scroll
             Layout.fillHeight: true
             Layout.fillWidth: true
             TextArea {
@@ -35,6 +36,11 @@ Page {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 text: varSensor
+                onTextChanged : {
+                    console.log("textChanged")
+                    scroll.ScrollBar.position = 1
+                }
+
                 onVarSensorChanged: {
 
                     cpp.addLuxDetection()
