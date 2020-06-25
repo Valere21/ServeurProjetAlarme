@@ -22,14 +22,15 @@ Page {
         objectName: "gridLabel"
         anchors.fill: parent
         rows: 10
-        columns: 2
-
+        columns: 2        
         property var varSensor: "lorem ipsum "
         onVarSensorChanged: {
+
             if (cpp.getIndexArchive() === true){
 
                 if (cpp.getState() === 1 ){
-                    cpp.addLuxDetection()
+                    grid.text = cpp.addLuxDetection()
+                    //page.header.text = cpp.addLuxDetection()
                 }
                 else if (cpp.getState() === 2){
                     cpp.addSoundDetection()
