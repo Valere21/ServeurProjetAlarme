@@ -26,6 +26,7 @@ Page {
         columns: 2
 
         Label {
+            id: label
             objectName: "labelTxt"
         property var varSensor: "lorem ipsum "
             Layout.fillHeight: true
@@ -50,8 +51,8 @@ Page {
             }
         }
             Component.onCompleted: {
-                console.log("grid")
-            cpp.registerGrid(grid)
+                console.log("labelTxt")
+            cpp.registerLabel(label)
             }
     }
     }

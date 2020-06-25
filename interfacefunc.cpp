@@ -230,11 +230,11 @@ void Interface::displayArchive(){
 
 }
 
-void Interface::registerGrid(QObject *obj)
+void Interface::registerLabel(QObject *obj)
 {
-    m_gridList.append(obj);
+    m_labelList.append(obj);
     obj->setProperty("text", "initialized!!");
-    qDebug()<< "register grid";
+    qDebug()<< "register label";
 }
 
 
