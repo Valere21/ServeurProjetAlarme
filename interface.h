@@ -86,7 +86,8 @@ private slots:
 private:
 
     //vérifie si m_msg vaut 0
-    bool m_flag = false;
+
+    int m_flag = 0;
 
     //définit l'index
 
