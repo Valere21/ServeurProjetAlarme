@@ -25,7 +25,7 @@ Page {
         rows: 10
         columns: 2
 
-        Label {
+        TextArea {
             id: label
             objectName: "labelTxt"
             property var varSensor: "lorem ipsum "
