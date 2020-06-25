@@ -107,7 +107,7 @@ void Interface::writeSensorLux(QByteArray message){
 
 void Interface::changeView(QObject* swipe)
 {
- m_swipe = swipe;
+    m_swipe = swipe;
 }
 
 void Interface::addLuxDetection(){
@@ -118,7 +118,7 @@ void Interface::addLuxDetection(){
     if (m_indexArchive < 30){
 
 
-                result = m_labelList.at(0)->property("text").toString();
+                result = m_labelList.at(m_indexArchive)->property("text").toString();
                 result.append(msg);
                 m_labelList.at(m_indexArchive)->setProperty("text", result);
 
@@ -128,6 +128,8 @@ void Interface::addLuxDetection(){
                     m_indexArchive++;
                     m_swipe->setProperty("currentIndex", m_indexArchive );
                     m_nbrDetec = 0;
+                    m_labelList.at(m_indexArchive)->setProperty("text", "" );
+
                 }
     }
     else if (  m_indexArchive >= 30){
