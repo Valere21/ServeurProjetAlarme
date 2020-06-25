@@ -167,7 +167,7 @@ void Interface::getSensorState(QByteArray msg)
         m_flag = true;
         lightLux->setProperty ("active", "false");
         lightSound->setProperty ("active", "false");
-        addLuxDetection();
+        //addLuxDetection();
 
     }
 
