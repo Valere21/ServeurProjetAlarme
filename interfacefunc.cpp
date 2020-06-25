@@ -119,6 +119,7 @@ void Interface::addLuxDetection(){
 }
 void Interface::addSoundDetection(){
 
+
     QString msg = "Détection du capteur à ultrason le :" + getDate();
    // QObject* rootItem = (QObject*)rootObject();
    // QObject* labelArc = rootItem->findChild<QObject*>("labelTxt");
@@ -183,6 +184,7 @@ void Interface::getSensorState(QByteArray msg)
         lightSound->setProperty("color", "c01414");
         lightSound->setProperty ("active", "true");
         lightLux->setProperty ("active", "false");
+        addSoundDetection();
         //soundLabel->setProperty("text", "détection le");
 
     }
