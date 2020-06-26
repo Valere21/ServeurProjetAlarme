@@ -76,8 +76,6 @@ void Interface::onNewConnection(){
     connect(socket, SIGNAL(stateChanged(QAbstractSocket::SocketState)), this, SLOT(socketStateChanged(QAbstractSocket::SocketState)));        //Slot de changement d'état
     connect(socket, SIGNAL(disconnected()), this, SLOT(socketDisconnected()));
 
-    soundDetect();
-    luxDetect();
 
 }
 
@@ -92,18 +90,22 @@ void Interface::onReadyRead(){
         qDebug() << "Test de lecture";
         message = socket->readAll();
         qDebug() << message;
-        /*if (flag == false){
-        msgDetect(message);
-        flag = true;
-        }*/
-        socket->write("Le message reçu est :" + message);
+
+        if (message.contains("idClient")){
+            qDebug() << "contient l'id client";
+            for (int i = 0;  i < listSocket.size(); i++){
+            listSocket.at(i)->write(m_msgToSend);
+            }
+        }
     }
 }
-
-void Interface::writeSensorLux(QByteArray message){
+/*
+void Interface::sendArchive(){
 
     socket->write(message);
-}
+}*/
+
+
 
 void Interface::changeView(QObject* swipe)
 {
@@ -198,7 +200,10 @@ void Interface::addSoundDetection(){
 
 void Interface::getSensorState(QByteArray msg)
 {   
+    m_msgToSend = msg;
+
     QObject* rootItem = (QObject*)rootObject();
+
 
     if (rootItem == nullptr){
         qDebug() << "rootItem not found";
@@ -270,6 +275,7 @@ QString Interface::getDate(){
 }
 
 
+
 void Interface::socketError(QAbstractSocket::SocketError socketError){
 
     qDebug() << "Erreur du socket, numéro d'erreur :" << socketError;
@@ -284,6 +290,8 @@ void Interface::socketStateChanged(QAbstractSocket::SocketState socketState){
 
 void Interface::socketDisconnected(){
 
+    QTcpSocket* socketDisconnect = (QTcpSocket*)sender();
+    listSocket.removeOne(socketDisconnect);
     qDebug() << "Socket déconnecter";
 }
 

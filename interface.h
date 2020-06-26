@@ -21,8 +21,7 @@ public:
 
     void init();
 
-    void writeSensorLux(QByteArray message);                        //Ecrit message détection de lumière vers app client
-    void writeSensorSound(QByteArray message);                      //Ecrit message détection ultrason vers app client
+    void sendArchive();
 
 
 public slots:
@@ -31,7 +30,6 @@ public slots:
 
     //Récupère la date
     QString getDate();
-
 
     //Vérifie que la dernière valeur lu sur le port série est égale à 0.
     bool getFlag(){return m_flag;}
@@ -90,7 +88,7 @@ private:
     int m_flag = 0;
 
     //définit l'index
-
+    QByteArray m_msgToSend;
     int m_indexArchive = 0;
     int m_nbrDetec = 0 ;
     QTcpServer *server =  nullptr;
